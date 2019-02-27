@@ -1,7 +1,7 @@
 <template>
         <div>
          <div class="card" v-for="(item,index) in list" :key="index">
-            <div class="img">
+            <div class="img" @click="getAPi(2018)">
                  <img src="Images/001.jpg">
             </div>
             <div class="introduction">
@@ -29,6 +29,26 @@ export default {
       list:[1,2,3,4,5]
     }
   },
+  mounted:function(){
+      this.getAPi(2017)
+  },
+  created:function(){  
+  },
+  methods:{
+    getAPi(year){
+        let url = `http://api.moemoe.tokyo/anime/v1/master/${year}/1`
+        this.$axios({
+        methods: 'get',
+        url: url
+        })
+        .then((resp) => {
+        console.log(resp)
+        }) .catch(function (error) {
+        console.log(error);
+        });;
+        
+    }
+  }
 }
 </script>
 
