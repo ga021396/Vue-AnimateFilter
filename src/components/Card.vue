@@ -3,7 +3,9 @@
     <div class="card" v-for="(item,index) in getData(filterType,searchContent)" :key="index">
         <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
-            <h2 class="name">{{item.title}}</h2>
+            <h2 class="name">{{item.title}}
+                <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item.title)}" @click="setMyFavorite(item)" />
+            </h2>
             <div class="purpose">{{limitStory(item.story)}}</div>
             <div class="result">
                 <span class="cardResult" v-for="(type,index) in getType(item.type) " :key="index">{{type}}</span>
@@ -17,48 +19,70 @@
 import animeData from '../../data.js'
 export default {
     name: 'card',
-    props: ['filterType','searchContent'],
+    props: ['filterType', 'searchContent', 'myFavorite'],
     data() {
         return {
-
+            MylocalStorage: [],
         }
     },
-    mounted: function () {
-    },
-    created: function () {},
+    mounted: function () {},
+    created: function () {localStorage.clear()},
     computed: {
+        getLocalStorage() {
+            this.MylocalStorage = (localStorage.getItem('myFavoriteList')) ? JSON.parse(localStorage.getItem('myFavoriteList')) : {
+                myFavoriteList: []
+            };
+            return this.MylocalStorage;
+        },
+        getLocalStorageContent(){
+            const data= (localStorage.getItem('content')) ? JSON.parse(localStorage.getItem('content')) : {
+                content: []
+            };
+            return data;
+        }
     },
     methods: {
-        getData(type,searchContent) {
-            console.log(searchContent)
-            let filterList = [...animeData[0]].splice(0,3);
-            if(searchContent.trim() !== ''){
+        getData(type, searchContent) {
+            let filterList = [...animeData[0]];
+            if(this.myFavorite){
+                filterList = this.getLocalStorageContent.content;
+            }
+            if (searchContent.trim() !== '') {
                 filterList = filterList.filter(item => item.title.toLowerCase().indexOf(searchContent.toLowerCase()) > -1)
             }
-            switch(type)
-            {
-            case 'comedy':
-                return filterList.filter(item=>{
-                    return item.type.comedy === true
-                  }); 
-            break;
-            case 'mystery':
-                return filterList.filter(item=>{
-                    return item.type.mystery === true
-                  }); 
-            break;
-            case 'school':
-                return filterList.filter(item=>{
-                    return item.type.school === true
-                  }); 
-            break;
-            case 'adventure':
-                return filterList.filter(item=>{
-                    return item.type.adventure === true
-                  }); 
-            break;
-            default: 
-                return filterList;
+            switch (type) {
+                case 'comedy':
+                    return filterList.filter(item => {
+                        return item.type.comedy === true
+                    });
+                    break;
+                case 'mystery':
+                    return filterList.filter(item => {
+                        return item.type.mystery === true
+                    });
+                    break;
+                case 'school':
+                    return filterList.filter(item => {
+                        return item.type.school === true
+                    });
+                    break;
+                case 'sports':
+                    return filterList.filter(item => {
+                        return item.type.sports === true
+                    });
+                    break;
+                case 'romance':
+                    return filterList.filter(item => {
+                        return item.type.romance === true
+                    });
+                    break;
+                case 'adventure':
+                    return filterList.filter(item => {
+                        return item.type.adventure === true
+                    });
+                    break;
+                default:
+                    return filterList;
             }
         },
         getType(item) {
@@ -77,6 +101,25 @@ export default {
                 return trimmedString + '...'
             } else return;
         },
+        setMyFavorite(animeName) {
+            const isMyName = this.getLocalStorage.myFavoriteList.findIndex(item => item === animeName.title);
+            if (isMyName !== -1) {
+                this.getLocalStorage.myFavoriteList.splice(isMyName, 1)
+                this.getLocalStorageContent.content.splice(animeName,1)
+            } else {
+                this.getLocalStorage.myFavoriteList.push(animeName.title);
+                this.getLocalStorageContent.content.push(animeName)
+            }
+            localStorage.setItem('myFavoriteList', JSON.stringify(this.getLocalStorage));
+        },
+        getMyFavorite(animeName) {
+            const isMyName = this.getLocalStorage.myFavoriteList.findIndex(item => item === animeName);
+            if (isMyName !== -1) {
+                return true
+            } else {
+                return false;
+            }
+        }
     }
 }
 </script>
@@ -90,6 +133,19 @@ export default {
     display: flex;
     height: 220px;
     font-family: "Kokoro";
+    position: relative;
+}
+
+.icon {
+    color: #dddddd;
+    float: right;
+    font-size: 36px;
+    z-index: 5;
+    margin-right: 20px;
+}
+
+.icon-active {
+    color: #9013FE;
 }
 
 .card .introduction {
@@ -101,16 +157,17 @@ export default {
 
 .introduction h2 {
     color: #9013FE;
-    margin:10px 0;
+    margin: 10px 0;
 }
 
 .aut {
     font-weight: 600;
     margin-right: 10px;
 }
+
 .purpose {
     height: 100px;
-    width: auto;
+    width: 100%;
     overflow: hidden;
 }
 

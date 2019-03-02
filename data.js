@@ -837,7 +837,7 @@ export default[
     {
         "id": 882,
         "title": "HERO MASK",
-        "type":{"comedy":false,horror:false,romance:false,adventure:false,school:false,mystery:true},
+        "type":{comedy:false,sports:false,romance:false,adventure:false,school:false,mystery:true},
         "PV":"https://www.youtube.com/embed/7FtgXtNPQGY",
         "story":"刑事ジェームズ・ブラッドの前に現れた謎のマスク。そして、それを持っていたのは、存在してはいけない人間だった。マスクとは・・・一体・・・？美しき街を舞台にしたクライムアクションここに開幕！"
 
@@ -845,164 +845,275 @@ export default[
     {
         "id": 883,
         "title": "盾の勇者の成り上がり",
-        "type":{"comedy":false,horror:false,romance:false,adventure:true,school:false,mystery:false},
+        "type":{comedy:false,sports:false,romance:false,adventure:true,school:false,mystery:false},
         "PV":"https://www.youtube.com/embed/uipcsm9IKoQ",
         "story":"ごく平凡なオタク大学生・岩谷尚文は、図書館で出会った1冊の本に導かれ異世界へと召喚されてしまう。与えられた使命は、剣、槍、弓、盾をまとう四聖勇者の一人「盾の勇者」として、世界に混沌をもたらす災い「波」を振り払うこと。大冒険に胸を膨らませ、仲間とともに旅立った尚文。ところが、出発から数日目にして裏切りに遭い、金も立場もすべて失ってしまう。他人を信じられなくなった尚文は奴隷の少女・ラフタリアを使役し、波に、世界に、立ち向かおうとするが―。果たして、この絶望的状況を打破することはできるのか?すべてを失った男の成り上がりファンタジー、開幕。"
     },
     {
         "id": 884,
         "title": "BanG Dream! 2nd season",
-        "type":{"comedy":true,horror:false,romance:false,adventure:false,school:true,mystery:false},
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
         "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
         "story":"高校2年生になった香澄たちPoppin'Partyは、生徒会や家の手伝い、塾やバイトで大忙し。5人で一緒に居られる時間が少なくなり、拠点である蔵にもなかなか集まれない。そんな彼女たちのもとへ、1人の少女が現れて――。新たな出会い。変わらぬキズナ。Afterglow、Pastel＊Palettes、Roselia、ハロー、ハッピーワールド！も登場し、個性豊かなバンドメンバー達がキラキラドキドキなステージを魅せる！「また、みんなでライブしたい」"
     },
     {
         "id": 885,
-        "title": "ブギーポップは笑わない"
+        "title": "ブギーポップは笑わない",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 886,
-        "title": "エガオノダイカ"
+        "title": "エガオノダイカ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 887,
-        "title": "不機嫌なモノノケ庵 續"
+        "title": "不機嫌なモノノケ庵 續",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 888,
-        "title": "W'z(ウィズ)"
+        "title": "W'z(ウィズ)",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 889,
-        "title": "みにとじ"
+        "title": "みにとじ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 890,
-        "title": "どろろ"
+        "title": "どろろ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 891,
-        "title": "上野さんは不器用"
+        "title": "上野さんは不器用",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 892,
-        "title": "モブサイコ100 Ⅱ"
+        "title": "モブサイコ100 Ⅱ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 893,
-        "title": "ぱすてるメモリーズ"
+        "title": "ぱすてるメモリーズ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 894,
-        "title": "けものフレンズ2"
+        "title": "けものフレンズ2",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 895,
-        "title": "私に天使が舞い降りた！"
+        "title": "私に天使が舞い降りた！",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 896,
-        "title": "CIRCLET PRINCESS(サークレット・プリンセス)"
+        "title": "CIRCLET PRINCESS(サークレット・プリンセス)",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 897,
-        "title": "雨色ココアsideG"
+        "title": "雨色ココアsideG",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 898,
-        "title": "臨死!!江古田ちゃん"
+        "title": "臨死!!江古田ちゃん",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 899,
-        "title": "3D彼女 リアルガール 第2シリーズ"
+        "title": "3D彼女 リアルガール 第2シリーズ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 900,
-        "title": "賭ケグルイ××"
+        "title": "賭ケグルイ××",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 901,
-        "title": "ケムリクサ"
+        "title": "ケムリクサ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 902,
-        "title": "同居人はひざ、時々、頭のうえ。"
+        "title": "同居人はひざ、時々、頭のうえ。",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 903,
-        "title": "明治東亰恋伽"
+        "title": "明治東亰恋伽",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 904,
-        "title": "約束のネバーランド"
+        "title": "約束のネバーランド",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 905,
-        "title": "revisions リヴィジョンズ"
+        "title": "revisions リヴィジョンズ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 906,
-        "title": "Dimension ハイスクール"
+        "title": "Dimension ハイスクール",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 907,
-        "title": "ガーリー・エアフォース"
+        "title": "ガーリー・エアフォース",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 908,
-        "title": "五等分の花嫁"
+        "title": "五等分の花嫁",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 909,
-        "title": "グリムノーツ The Animation"
+        "title": "グリムノーツ The Animation",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 910,
-        "title": "フライングベイビーズ"
+        "title": "フライングベイビーズ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 911,
-        "title": "デート・ア・ライブIII"
+        "title": "デート・ア・ライブIII",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 912,
-        "title": "B-PROJECT～絶頂*エモーション～"
+        "title": "B-PROJECT～絶頂*エモーション～",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 913,
-        "title": "ドメスティックな彼女"
+        "title": "ドメスティックな彼女",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 914,
-        "title": "魔法少女特殊戦あすか"
+        "title": "魔法少女特殊戦あすか",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 915,
-        "title": "バミューダトライアングル ～カラフル・パストラーレ～"
+        "title": "バミューダトライアングル ～カラフル・パストラーレ～",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 916,
-        "title": "かぐや様は告らせたい～天才たちの恋愛頭脳戦～"
+        "title": "かぐや様は告らせたい～天才たちの恋愛頭脳戦～",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 917,
-        "title": "えんどろ～！"
+        "title": "えんどろ～！",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 918,
-        "title": "荒野のコトブキ飛行隊"
+        "title": "荒野のコトブキ飛行隊",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 919,
-        "title": "マナリアフレンズ"
+        "title": "マナリアフレンズ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 920,
-        "title": "ピアノの森 第2シリーズ"
+        "title": "ピアノの森 第2シリーズ",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     },
     {
         "id": 921,
-        "title": "バーチャルさんはみている"
+        "title": "バーチャルさんはみている",
+        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
+        "story":''
     }
 ]
 ]

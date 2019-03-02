@@ -14,19 +14,17 @@
                 </el-select>
             </div>
             <div id="categories">
-                        <h2>Categories</h2>
-                        <ul>
-                            <li><input type="checkbox" id="all">All</li>
-                            <li><input type="checkbox">Entertainment</li>
-                            <li><input type="checkbox">Food</li>
-                            <li><input type="checkbox">Learing</li>
-                            <li><input type="checkbox">Outdoors</li>
-                        </ul>
+                 <h2>Myfavorite</h2>
+                 <el-switch
+                v-model="favorite"
+                active-color="#13ce66"
+                inactive-color="#ff4949">
+                </el-switch>
             </div>
         </div>
         <div id="body">
                     <h2 class="howmany">カテゴリー：{{value}}</h2>
-                    <card :filterType="value" :searchContent="search"></card>
+                    <card :filterType="value" :searchContent="search" :myFavorite="favorite"></card>
                 </div>
         </div>
 </template>
@@ -41,27 +39,32 @@ export default {
     },
     data() {
         return {
+            favorite:true,
             search: "",
-            options: [{
+            options: [
+                {
+                value: 'All',
+                label: '全部'
+            },{
                 value: 'comedy',
-                label: 'comedy'
+                label: 'コメディ'
             }, {
-                value: 'horror',
-                label: 'horror'
+                value: 'sports',
+                label: 'スポーツ/競技'
             }, {
                 value: 'romance',
-                label: 'romance'
+                label: '恋愛/ラブコメ'
             }, {
                 value: 'adventure',
-                label: 'adventure'
+                label: 'SF/ファンタジー/バトル'
             }, {
                 value: 'school',
-                label: 'school'
+                label: '青春/ドラマ'
             ,}, {
                 value: 'mystery',
-                label: 'mystery'
-            }],
-            value: 'all'
+                label: '推理/サスペンス'
+            },],
+            value: 'All'
         }
     }
 }
@@ -145,16 +148,6 @@ html {
 #location{
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-
-#categories ul {
-    text-align: left;
-}
-
-#categories ul li {
-    list-style: none;
-}
-
 #body {
     float: left;
     width: 65%;
@@ -176,6 +169,6 @@ html {
 }
 .el-select{
     margin-bottom: 20px;
-    margin-right:18px;
+    margin-right:15px;
 }
 </style>
