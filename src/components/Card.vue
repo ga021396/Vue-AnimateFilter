@@ -101,14 +101,14 @@ export default {
                 return trimmedString + '...'
             } else return;
         },
-        setMyFavorite(animeName) {
-            const isMyName = this.getLocalStorage.myFavoriteList.findIndex(item => item === animeName.title);
+        setMyFavorite(anime) {
+            const isMyName = this.getLocalStorage.myFavoriteList.findIndex(item => item === anime.title);
             if (isMyName !== -1) {
                 this.getLocalStorage.myFavoriteList.splice(isMyName, 1)
-                this.getLocalStorageContent.content.splice(animeName,1)
+                this.getLocalStorageContent.content.splice(isMyName,1)
             } else {
-                this.getLocalStorage.myFavoriteList.push(animeName.title);
-                this.getLocalStorageContent.content.push(animeName)
+                this.getLocalStorage.myFavoriteList.push(anime.title);
+                this.getLocalStorageContent.content.push(anime)
             }
             localStorage.setItem('myFavoriteList', JSON.stringify(this.getLocalStorage));
         },
