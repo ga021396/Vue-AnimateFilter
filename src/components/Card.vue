@@ -1,11 +1,11 @@
 <template>
 <div>
-    <div class="card" v-for="(item,index) in getData(filterType)" :key="index">
+    <div class="card" v-for="(item,index) in getData(filterType,searchContent)" :key="index">
         <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
             <h2 class="name">{{item.title}}</h2>
             <div class="purpose">{{limitStory(item.story)}}</div>
-            <div class="result" @click="console.log(filterType)">
+            <div class="result">
                 <span class="cardResult" v-for="(type,index) in getType(item.type) " :key="index">{{type}}</span>
             </div>
         </div>
@@ -17,21 +17,24 @@
 import animeData from '../../data.js'
 export default {
     name: 'card',
-    props: ['filterType'],
+    props: ['filterType','searchContent'],
     data() {
         return {
-            list: []
+
         }
     },
     mounted: function () {
-        this.getType(animeData[0][0].type)
     },
     created: function () {},
     computed: {
     },
     methods: {
-        getData(type) {
+        getData(type,searchContent) {
+            console.log(searchContent)
             let filterList = [...animeData[0]].splice(0,3);
+            if(searchContent.trim() !== ''){
+                filterList = filterList.filter(item => item.title.toLowerCase().indexOf(searchContent.toLowerCase()) > -1)
+            }
             switch(type)
             {
             case 'comedy':

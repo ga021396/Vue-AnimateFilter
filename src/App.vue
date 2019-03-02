@@ -3,13 +3,13 @@
     <div id="nav">
         <h1 id="hav">HaveFun</h1>
         <font-awesome-icon icon="coffee" class="icon" />
-        <input type="text" placeholder="Explore your own activites">
+        <input type="text" v-model="search" placeholder="Explore your own activites">
     </div>
         <div id="search">
             <div id="location">
                 <h2>Location</h2>
                 <template>
-                    <el-select v-model="value" placeholder="请选择">
+                    <el-select v-model="value" placeholder="select">
                         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
@@ -39,7 +39,7 @@
                 </div>
                 <div id="body">
                     <h2 class="howmany">Showing 15 results by...</h2>
-                    <card :filterType="value"></card>
+                    <card :filterType="value" :searchContent="search"></card>
                 </div>
             </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     },
     data() {
         return {
-            type: "all",
+            search: "",
             options: [{
                 value: 'comedy',
                 label: 'comedy'
