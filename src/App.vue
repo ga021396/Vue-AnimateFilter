@@ -1,32 +1,19 @@
 <template>
 <div id="app">
     <div id="nav">
-        <h1 id="hav">HaveFun</h1>
+        <h1 id="hav">アニ図鑑</h1>
         <font-awesome-icon icon="coffee" class="icon" />
         <input type="text" v-model="search" placeholder="Explore your own activites">
     </div>
-        <div id="search">
+    <div id="search">
             <div id="location">
-                <h2>Location</h2>
-                <template>
-                    <el-select v-model="value" placeholder="select">
+                <h2>カテゴリー</h2>
+                <el-select v-model="value" placeholder="select">
                         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
-                    </el-select>
-                </template>
+                </el-select>
             </div>
-            <div id="date">
-                <h2>Date</h2>
-                <div class="date">
-                    <span>from</span>
-                    <input id="date" type="date" value="2017-06-01">
-            </div>
-                    <div class="date">
-                        <span style="margin-left: 18px;">to</span>
-                        <input id="date" type="date" value="2017-06-01">
-            </div>
-                    </div>
-                    <div id="categories">
+            <div id="categories">
                         <h2>Categories</h2>
                         <ul>
                             <li><input type="checkbox" id="all">All</li>
@@ -35,13 +22,13 @@
                             <li><input type="checkbox">Learing</li>
                             <li><input type="checkbox">Outdoors</li>
                         </ul>
-                    </div>
-                </div>
-                <div id="body">
-                    <h2 class="howmany">Showing 15 results by...</h2>
+            </div>
+        </div>
+        <div id="body">
+                    <h2 class="howmany">カテゴリー：{{value}}</h2>
                     <card :filterType="value" :searchContent="search"></card>
                 </div>
-            </div>
+        </div>
 </template>
 
 <script>
@@ -81,6 +68,9 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
+@import url("https://fonts.googleapis.com/earlyaccess/kokoro.css");
+
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -95,7 +85,10 @@ html {
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
-
+#hav{
+    font-weight: 600;
+    font-family: "M PLUS Rounded 1c";
+}
 #nav {
     width: 100%;
     height: 92px;
@@ -145,29 +138,14 @@ html {
     padding: 0 12px;
 }
 
-#location select {
-    width: 80%;
-    height: 30px;
+#location .filter {
     margin-bottom: 20px;
 }
 
-#location,
-#date {
+#location{
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-#date .date {
-    margin-left: -20px;
-}
-
-#date input {
-    border: none;
-    width: 58%;
-    margin-bottom: 20px;
-    margin-right: 10%;
-    margin-left: 5%;
-    height: 30px;
-}
 
 #categories ul {
     text-align: left;
@@ -188,23 +166,16 @@ html {
 #body h2 {
     font-weight: 400;
     text-align: left;
+      font-weight: 600;
+    font-family: "M PLUS Rounded 1c";
 }
-
-.result {
-    display: flex;
+.el-input__suffix {
+    right: 20px!important;
+    -webkit-transition: all .3s;
+    transition: all .3s;
 }
-
-.result span {
-    border: 1px solid #9013FE;
-    ;
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: #9013FE;
-    margin-right: 8px;
-}
-
-.result i {
-    padding-left: 5px;
-    color: #9013FE;
+.el-select{
+    margin-bottom: 20px;
+    margin-right:18px;
 }
 </style>

@@ -89,57 +89,46 @@ export default {
     width: 100%;
     display: flex;
     height: 220px;
-}
-
-.card img {
-    width: 220px;
-    height: 100%;
+    font-family: "Kokoro";
 }
 
 .card .introduction {
     text-align: left;
     padding-left: 20px;
-    width: 100%;
+    width: auto;
     background-color: white;
 }
 
 .introduction h2 {
     color: #9013FE;
+    margin:10px 0;
 }
 
 .aut {
     font-weight: 600;
     margin-right: 10px;
 }
-
-.cardResult {
-    color: white;
-    padding: 2px 15px;
-    border-radius: 15px;
-    font-style: italic;
-}
-
 .purpose {
     height: 100px;
-    width: 460px;
+    width: auto;
     overflow: hidden;
 }
 
 .result {
     display: flex;
+    margin-top: 20px;
 }
 
 .result span {
+    padding: 0 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    line-height: 16px;
+    font-style: italic;
     border: 1px solid #9013FE;
-    ;
-    padding: 5px 10px;
     border-radius: 15px;
     color: #9013FE;
     margin-right: 8px;
-}
-
-.result i {
-    padding-left: 5px;
-    color: #9013FE;
+    padding-bottom: 7px;
 }
 </style>
