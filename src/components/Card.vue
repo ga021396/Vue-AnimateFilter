@@ -4,7 +4,7 @@
         <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
             <h2 class="name">{{item.title}}
-                <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item.title)}" @click="setMyFavorite(item)" />
+                <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </h2>
             <div class="purpose">{{limitStory(item.story)}}</div>
             <div class="result">
@@ -26,26 +26,24 @@ export default {
         }
     },
     mounted: function () {},
-    created: function () {localStorage.clear()},
+    created: function () {
+        localStorage.clear()
+    },
     computed: {
         getLocalStorage() {
-            this.MylocalStorage = (localStorage.getItem('myFavoriteList')) ? JSON.parse(localStorage.getItem('myFavoriteList')) : {
-                myFavoriteList: []
-            };
-            return this.MylocalStorage;
-        },
-        getLocalStorageContent(){
-            const data= (localStorage.getItem('content')) ? JSON.parse(localStorage.getItem('content')) : {
+            //this function get localstorage
+            this.MylocalStorage = (localStorage.getItem('content')) ? JSON.parse(localStorage.getItem('content')) : {
                 content: []
             };
-            return data;
+            return this.MylocalStorage;
         }
     },
     methods: {
         getData(type, searchContent) {
+            //this function render card and filter anime data when search and choose anime type
             let filterList = [...animeData[0]];
-            if(this.myFavorite){
-                filterList = this.getLocalStorageContent.content;
+            if (this.myFavorite) {
+                filterList = this.getLocalStorage.content;
             }
             if (searchContent.trim() !== '') {
                 filterList = filterList.filter(item => item.title.toLowerCase().indexOf(searchContent.toLowerCase()) > -1)
@@ -86,6 +84,8 @@ export default {
             }
         },
         getType(item) {
+            //this function return anime's type
+            //item is a object have a lot type ex:{romace:true,adventure,false}
             if (item) {
                 let keys = Object.keys(item);
 
@@ -96,24 +96,25 @@ export default {
             } else return
         },
         limitStory(story) {
+            //this function limit story long to 50 words
             if (story) {
                 let trimmedString = story.substring(0, 100);
                 return trimmedString + '...'
             } else return;
         },
         setMyFavorite(anime) {
-            const isMyName = this.getLocalStorage.myFavoriteList.findIndex(item => item === anime.title);
+            //this function save/remove your favorite anime to localstorage 
+            const isMyName = this.getLocalStorage.content.findIndex(item => item.title === anime.title);
             if (isMyName !== -1) {
-                this.getLocalStorage.myFavoriteList.splice(isMyName, 1)
-                this.getLocalStorageContent.content.splice(isMyName,1)
+                this.getLocalStorage.content.splice(isMyName, 1)
             } else {
-                this.getLocalStorage.myFavoriteList.push(anime.title);
-                this.getLocalStorageContent.content.push(anime)
+                this.getLocalStorage.content.push(anime)
             }
-            localStorage.setItem('myFavoriteList', JSON.stringify(this.getLocalStorage));
+            localStorage.setItem('content', JSON.stringify(this.getLocalStorage));
         },
-        getMyFavorite(animeName) {
-            const isMyName = this.getLocalStorage.myFavoriteList.findIndex(item => item === animeName);
+        getMyFavorite(anime) {
+            //this function return your favorite anime
+            const isMyName = this.getLocalStorage.content.findIndex(item => item.title === anime.title);
             if (isMyName !== -1) {
                 return true
             } else {
