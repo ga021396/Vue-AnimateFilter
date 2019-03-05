@@ -3,10 +3,11 @@
     <div class="card" v-for="(item,index) in getData(filterType,searchContent)" :key="index">
         <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
-            <h2 class="name">{{item.title}}
+            <div class="name">
+                <span>{{item.title}}</span>
                 <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
-            </h2>
-            <div class="purpose">{{limitStory(item.story)}}</div>
+            </div>
+            <div class="purpose">{{fakeStory(item.story)}}</div>
             <div class="result">
                 <span class="cardResult" v-for="(type,index) in getType(item.type) " :key="index">{{type}}</span>
             </div>
@@ -95,12 +96,10 @@ export default {
                 return filtered;
             } else return
         },
-        limitStory(story) {
-            //this function limit story long to 50 words
-            if (story) {
-                let trimmedString = story.substring(0, 100);
-                return trimmedString + '...'
-            } else return;
+        fakeStory(story) {
+            //this function give which dont have story 
+            if (story.length === 0) return　'ストーリーはまだ見つかりません、少々お待ちください。ストーリーはまだ見つかりません、少々お待ちください。';
+            else return story;
         },
         setMyFavorite(anime) {
             //this function save/remove your favorite anime to localstorage 
@@ -127,7 +126,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
-<style scoped>
+<style scoped lang='scss'>
 .card {
     margin: 25px 0;
     width: 100%;
@@ -150,15 +149,29 @@ export default {
 }
 
 .card .introduction {
+    width:50%;
+    display: flex;
+    flex-direction: column;
     text-align: left;
-    padding-left: 20px;
+    padding:0 20px;
     width: auto;
     background-color: white;
 }
 
-.introduction h2 {
+.introduction .name {
+    height:36px;
     color: #9013FE;
     margin: 10px 0;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    transition: 3ms all ease-in-out;
+    span{
+          overflow : hidden;
+  text-overflow : ellipsis;
+  white-space : nowrap;
+    }
 }
 
 .aut {
@@ -170,6 +183,10 @@ export default {
     height: 100px;
     width: 100%;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .result {

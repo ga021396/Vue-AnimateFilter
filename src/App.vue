@@ -39,7 +39,7 @@ export default {
     },
     data() {
         return {
-            favorite:true,
+            favorite:false,
             search: "",
             options: [
                 {
