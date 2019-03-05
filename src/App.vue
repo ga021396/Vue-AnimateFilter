@@ -23,7 +23,7 @@
             </div>
         </div>
         <div id="body">
-                    <h2 class="howmany">カテゴリー：{{value}}</h2>
+                    <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
                     <card :filterType="value" :searchContent="search" :myFavorite="favorite"></card>
                 </div>
         </div>
@@ -66,6 +66,31 @@ export default {
             },],
             value: 'All'
         }
+    },
+    methods:{
+        getTypeName(value){
+             switch (value) {
+                case 'comedy':
+                    return　"コメディ"
+                    break;
+                case 'mystery':
+                    return '推理/サスペンス'
+                    break;
+                case 'school':
+                    return '青春/ドラマ'
+                    break;
+                case 'sports':
+                    return 'スポーツ/競技'
+                    break;
+                case 'romance':
+                    return '恋愛/ラブコメ'
+                    break;
+                case 'adventure':
+                    return'SF/ファンタジー/バトル'
+                    break;
+                default:
+                    return "全部";
+        }}
     }
 }
 </script>

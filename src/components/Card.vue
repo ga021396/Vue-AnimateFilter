@@ -4,7 +4,7 @@
         <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
             <div class="name">
-                <span>{{item.title}}</span>
+                <a :href="item.web" target="_blank"><span>{{item.title}}</span></a>
                 <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </div>
             <div class="purpose">{{fakeStory(item.story)}}</div>
@@ -168,9 +168,16 @@ export default {
     justify-content: space-between;
     transition: 3ms all ease-in-out;
     span{
-          overflow : hidden;
-  text-overflow : ellipsis;
-  white-space : nowrap;
+        overflow : hidden;
+        text-overflow : ellipsis;
+        white-space : nowrap;
+    }
+    a{  color: #9013FE;
+        text-decoration:none;
+        cursor: pointer;
+        &:hover{
+            color: #B235FF; 
+        }
     }
 }
 
