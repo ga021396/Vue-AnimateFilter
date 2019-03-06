@@ -990,79 +990,90 @@ export default[
     {
         "id": 901,
         "title": "ケムリクサ",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:false,adventure:true,school:false,mystery:true},
+        "web":"http://kemurikusa.com/",
+        "PV":"https://www.youtube.com/embed/jyrXuDw0ftQ",
+        "story":'赤い霧に包まれた、荒廃した建造物に囲まれた人気の無い世界を舞台に３人の姉妹が生き抜く物語。物語の中心的人物でまとめ髪の特徴的なりん、猫耳でいつもおっとりしているお姉さんキャラのりつ、メイド調の服に身を包み天真爛漫なムードメーカーりな。謎多き世界でこの姉妹が目指すものは一体…'
     },
     {
         "id": 902,
         "title": "同居人はひざ、時々、頭のうえ。",
         "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "PV":"https://www.youtube.com/embed/V49KtL6cVDM",
+        "web":"https://hizaue.com/",
+        "story":'他人が苦手で、人見知りの小説家・朏 素晴（みかづき すばる）と人に捨てられ、 過酷なノラ生活を生き抜いてきた猫。ふとしたきっかけで一人と一匹はいっしょに暮らし始めるが･･･？ 日々の暮らしをひと目線とねこ目線で描き、それぞれの想いが交互に織りなされる ストーリーが"心があたたまる"と話題に。 些細な時間を積み重ねて、僕らは「家族」になっていく―― ふたりでみつける幸せ一緒ぐらし。'
     },
     {
         "id": 903,
         "title": "明治東亰恋伽",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:true,sports:false,romance:true,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/qJmQNjeGhjA",
+        "web":"http://meikoi.com/tv-anime/",
+        "story":'主人公・綾月芽衣（あやづきめい※名前変更可能）が現代からタイムスリップしてたどり着いた場所は、 物の怪が存在する不思議な明治時代の“東亰”。 そこで出会ったのは森 鴎外、菱田春草、川上音二郎、泉 鏡花、 藤田五郎、小泉八雲といった歴史上の人物達でした。 彼らと交流する中で、主人公は「魂依（たまより）」という物の怪を視ることができる 能力者だと自覚します。 そして日々を過ごす内に彼に惹かれ、恋に落ちた主人公。 明治に残るか現代に帰るか悩んだ末に、最愛の彼がいる「明治の世」に生きることを決意しました。 そんな「魂依（たまより）」の力を持つ主人公の周りでは、今日もちょっぴり不思議な事件が起こります。'
     },
     {
         "id": 904,
         "title": "約束のネバーランド",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:false,adventure:true,school:false,mystery:true},
+        "PV":"https://www.youtube.com/embed/0FcVh79iQws",
+        "web":"https://neverland-anime.com/",
+        "story":'グレイス＝フィールドハウスは親の居ない子供たちが住むところ。血の繋がりはなくても、ママと38人の兄弟はささやかながら幸せな日々を送っている。11歳のエマ・ノーマン・レイはハウスの年長者であり、毎朝のテストでそろって満点をとる優秀さをほこる。ある夜、里親のもとへ旅立つコニーを見送った子供たちだが、忘れ物に気付いたエマとノーマンは近づくことが禁じられている門へ向かう。そこで2人は衝撃の真実を目撃する―――'
     },
     {
         "id": 905,
         "title": "revisions リヴィジョンズ",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:false,adventure:true,school:true,mystery:true},
+        "PV":"https://www.youtube.com/embed/07bswHElOjY",
+        "web":"http://revisions.jp/",
+        "story":'7年前のあの日、彼女は言った。俺たちにいつか大変な危機が訪れる。みんなを守れるのは俺だけだと。誰も予言を信じていないけど、俺は毎日トレーニングして、常に大事な仲間を守ってる。そんな俺を認めてくれるように、俺と4人の仲間に一通のメールが届いた。そう。予言のときが、ついに、きたんだ……！'
     },
     {
         "id": 906,
         "title": "Dimension ハイスクール",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:false,adventure:true,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/jHbe-BGaMJ0",
+        "web":"http://dimension-hs.com/",
+        "story":'次元高校に通う白山純平は、校庭である石を拾う。緑ヶ丘流星、黄川田 剛、水上ゆりおらと、教師・桃谷総司が行う補習を受けていると、拾った石が勝手に動き出し……しゃべり始めた！ 「君たちこそ、予言の勇者だ！ 破壊の魔神を退治してほしい」 ―スプーディオ22世と名乗る謎の石のあまりに現実離れした発言に5人はついていけない。しびれを切らしたスプーディオが突然発光！目を覚ますとそこはアニメの世界だった―!? さらに、突如現れたスフィンクスによって、謎解きを強いられることに……。 果たして、5人は3次元の世界に戻ることができるのか!?'
     },
     {
         "id": 907,
         "title": "ガーリー・エアフォース",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:true,adventure:true,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/n6QatzbH4D4",
+        "web":'http://gaf-anime.jp/',
+        "story":'西暦2015年、中央アジア地域において正体不明の飛翔体が目撃される。のちに「ザイ」（災）と名付けられたそれらの飛翔体は、既存の軍用機をはるかに凌駕する戦闘力を有しており、各地に多大な被害をもたらした。これに対抗するため、各国は「ドーター」と呼ばれる特殊兵器の開発を開始する。'
     },
     {
         "id": 908,
         "title": "五等分の花嫁",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:true,adventure:false,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/pCwfEB6PbFk",
+        "web":'https://www.tbs.co.jp/anime/5hanayome/',
+        "story":'貧乏な生活を送る高校２年生・上杉風太郎のもとに、好条件の家庭教師アルバイトの話が舞い込む。 ところが教え子はなんと同級生！！ しかも五つ子だった！！ 個性豊かな中野家の五つ子は全員美少女、 だけど「落第寸前」「勉強嫌い」の問題児！ 最初の課題は彼女たちからの信頼を勝ち取ること･･･！？ 毎日がお祭り騒ぎ！ 中野家の五つ子が贈る、かわいさ５００％の五人五色ラブコメ開演！！'
     },
     {
         "id": 909,
         "title": "グリムノーツ The Animation",
-        "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "type":{comedy:false,sports:false,romance:false,adventure:true,school:true,mystery:false},
+        "PV":"https://www.youtube.com/embed/7vqdYkVXn6A",
+        "web":"https://www.tbs.co.jp/anime/grimmsnotes/",
+        "story":'人々は生まれたとき1冊の本を与えられる。生まれてから死ぬまで"運命の書"に記載された脚本の通りに生きる宿命。そんな中、空っぽの脚本である“空白の書”をもって生まれたエクスは、同じように“空白の書”をもった仲間、レイナ、タオ、シェインと出会い、自らの役割を見つける旅に出る。これは繰り返し読まれた童話の物語。'
     },
     {
         "id": 910,
         "title": "フライングベイビーズ",
         "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "PV":"https://www.youtube.com/embed/X7q7KpKqre0",
+        "web":"https://hulaingbabies.com/",
+        "story":'「こりゃぁ、たまりませんなぁ」「まぁ、今日のところはいいんじゃね。問題点を把握したってことでさ。はぁ～しかし、この足湯最高だな」――いわきの温泉街の中学に通う１年生のすずとクラスメイトのふみは、思いつきでフラ部を結成するが、すぐに勢いが失せ、毎日ゆるーく過ごしていた。そんな彼女たちは、フィンランドからの転校生モナが入ったのをきっかけに仲間を集め、コンテストへ出るためフラダンスに青春をかける。'
     },
     {
         "id": 911,
         "title": "デート・ア・ライブIII",
         "type":{comedy:true,sports:false,romance:false,adventure:false,school:true,mystery:false},
-        "PV":"https://www.youtube.com/embed/KNs0pQlJI94",
-        "story":''
+        "PV":"https://www.youtube.com/embed/iz_sAWpBNrI",
+        "web":"http://date-a-live-anime.com/",
+        "story":'絶望と戦闘の連鎖から救い出した精霊たちと、今日も賑やかで騒がしくありつつも、和やかで充実した日々を過ごす五河士道。そんな日常風景をけたたましく切り裂く空間震警報が——。廃墟と化したテーマパークに現界したのは＜ウィッチ＞と呼ばれる精霊・七罪（なつみ）。大人の魅力をムンムンと漂わせ、士道にも妙に好意的な様子。珍しくイージーモードのデートが展開されるのかと思いきや——。これまでの精霊たちとは一線を画す、色気を持ち合わせたオトナの精霊を相手に、人類の存亡と精霊の運命を賭けた——五河士道の戦争（デート）の幕が、三たび切って落とされた——'
     },
     {
         "id": 912,

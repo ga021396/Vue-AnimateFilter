@@ -4,7 +4,7 @@
         <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
             <div class="name">
-                <a :href="item.web" target="_blank"><span>{{item.title}}</span></a>
+                <span @click="openWebSite(item.web)">{{item.title}}</span>
                 <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </div>
             <div class="purpose">{{fakeStory(item.story)}}</div>
@@ -119,6 +119,9 @@ export default {
             } else {
                 return false;
             }
+        },
+        openWebSite(url){
+            window.open(url);
         }
     }
 }
@@ -154,7 +157,6 @@ export default {
     flex-direction: column;
     text-align: left;
     padding:0 20px;
-    width: auto;
     background-color: white;
 }
 
@@ -171,12 +173,9 @@ export default {
         overflow : hidden;
         text-overflow : ellipsis;
         white-space : nowrap;
-    }
-    a{  color: #9013FE;
-        text-decoration:none;
-        cursor: pointer;
+         cursor: pointer;
         &:hover{
-            color: #B235FF; 
+            color: lighten( #9013FE,15%);
         }
     }
 }
