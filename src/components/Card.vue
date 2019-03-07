@@ -168,6 +168,7 @@ export default {
     font-size: 36px;
     z-index: 5;
     margin-right: 20px;
+    transition: .3s all ease-in-out;
 }
 
 .icon-active {
@@ -199,6 +200,7 @@ export default {
         white-space : nowrap;
          cursor: pointer;
         &:hover{
+            transition: .3s all ease-in-out;
             color: lighten( #9013FE,15%);
         }
     }
@@ -242,7 +244,11 @@ export default {
   flex-direction: column;
   .introduction{
    width:auto;
-   height:120px;
+   height:66px;
+       .story{display: none;}
+       .TypeSection{display: none;}
+       .icon{float: right;font-size: 32px; margin-right: 0}
+       .name{width:100%;max-width:100%;line-height: 28px;}
     }
  }
 }
@@ -252,7 +258,9 @@ export default {
   flex-direction: column;
   .introduction{
    width:auto;
-   height:80px;
+   height:60px;
+   .icon{font-size: 26px}
+   .name{font-size: 20px;line-height: 20px;}
     }
  }
 }

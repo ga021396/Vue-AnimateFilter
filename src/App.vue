@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <div :class="{'hidden':this.mask}" class="mask"></div>
+    <div :class="{'hidden':this.mask}" class="mask" @click="setMask(true)"></div>
     <div :class="{'animation':!this.mask}" class="sidebar">
         <div class="Stitle">
             <font-awesome-icon icon="bars" class="Sicon" @click="setMask(true)"/>
@@ -11,7 +11,9 @@
             <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}"
             @click="setValue(item.value)">
                 <span>{{item.label}}</span>
-            </div>   
+            </div>
+            <h2>マイコレクション</h2>
+            <font-awesome-icon icon="heart" class="iconFavor" :class="{'icon-active':favorite}" @click="setMyFavorite(item)" />
         </div>
     </div>
     <div id="nav">
@@ -21,23 +23,6 @@
         <input type="text" v-model="search" placeholder="Explore your own activites">
     </div>
     <div class="container">
-            <!-- <div id="search">
-                <div id="location">
-                    <h2>カテゴリー</h2>
-                    <el-select v-model="value" placeholder="select">
-                            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                            </el-option>
-                    </el-select>
-                </div>
-                <div id="categories">
-                    <h2>Myfavorite</h2>
-                    <el-switch
-                    v-model="favorite"
-                    active-color="#13ce66"
-                    inactive-color="#ff4949">
-                    </el-switch>
-                </div>
-        </div> -->
             <div id="body">
                 <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
                 <card :filterType="value" :searchContent="search" :myFavorite="favorite"></card>
@@ -119,6 +104,9 @@ export default {
         setValue(value){
             this.value=value;
             this.mask=true;
+        },
+        setMyFavorite(){
+            this.favorite=!this.favorite;
         }
     }
 }
@@ -279,17 +267,24 @@ html {
     }
     div{
         cursor: pointer;
-        padding-left: 28px;
+        padding-left: 36px;
         font-size:16px;
         height:40px;
         line-height: 40px;
         font-weight: 600;
         font-family: "M PLUS Rounded 1c";
+        transition: all .3s ease-in-out;
         &:hover{
             color:white;
             background:#7828B4;
         }
 
+    }
+    .iconFavor{
+        padding-left: 36px;
+        font-size: 40px;
+        color:lighten(#2c3e50,40%);
+        transition: all .3s ease-in-out;
     }
 }
 .active{
@@ -299,6 +294,9 @@ html {
         color:white;
         background:#7828B4;
     }
+}
+.icon-active {
+    color: #9013FE!important;
 }
 /* tag */
 .ham {
