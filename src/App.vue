@@ -5,8 +5,14 @@
         <div class="Stitle">
             <font-awesome-icon icon="bars" class="Sicon" @click="setMask(true)"/>
             <span>アニ図鑑</span>
-            </div>
-        <div class="cate"></div>
+        </div>
+        <div class="cate">
+            <h2>カテゴリー</h2>
+            <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}"
+            @click="setValue(item.value)">
+                <span>{{item.label}}</span>
+            </div>   
+        </div>
     </div>
     <div id="nav">
         <font-awesome-icon icon="bars" class="ham" @click="setMask(false)"/>
@@ -105,6 +111,14 @@ export default {
         },
         setMask(mask){
             this.mask=mask;
+        },
+        getActiveType(value){
+            if(value===this.value)return true;
+            else return false;
+        },
+        setValue(value){
+            this.value=value;
+            this.mask=true;
         }
     }
 }
@@ -229,8 +243,8 @@ html {
 }
 .sidebar{
     transition: all .3s ease;
-    transform: translateX(-200px);
-    width:200px;
+    transform: translateX(-240px);
+    width:240px;
     height:100VH;
     position: absolute;
     left: 0;
@@ -246,20 +260,51 @@ html {
         border-bottom: 1px solid darken(#F2F2F2,10%);
         font-weight: 600;
         font-family: "M PLUS Rounded 1c";
+        text-align: left;
         .Sicon{
             cursor:pointer;
-            padding-right: 8px;
+            padding-right: 28px;
+            padding-left:8px;
         }
     }
 }   
 .hidden{
     display:none;
 }
+.cate{
+    text-align: left;
+    h2{
+        padding-left: 28px;
+        font-size: 20px;
+    }
+    div{
+        cursor: pointer;
+        padding-left: 28px;
+        font-size:16px;
+        height:40px;
+        line-height: 40px;
+        font-weight: 600;
+        font-family: "M PLUS Rounded 1c";
+        &:hover{
+            color:white;
+            background:#7828B4;
+        }
+
+    }
+}
+.active{
+    color:white;
+    background:#7828B4;
+    &:hover{
+        color:white;
+        background:#7828B4;
+    }
+}
 /* tag */
 .ham {
         color: white;
         font-size: 24px;
-        margin-left: 40px;
+        margin-left: 32px;
         cursor:pointer;
 }
 .animation{
