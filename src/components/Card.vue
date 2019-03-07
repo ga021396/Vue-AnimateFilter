@@ -9,7 +9,7 @@
             </div>
             <div class="purpose">{{fakeStory(item.story)}}</div>
             <div class="result">
-                <span class="cardResult" v-for="(type,index) in getType(item.type) " :key="index">{{type}}</span>
+                <span class="cardResult" v-for="(type,index) in getType(item.type) " :key="index">{{getTypeName(type)}}</span>
             </div>
         </div>
     </div>
@@ -122,7 +122,30 @@ export default {
         },
         openWebSite(url){
             window.open(url);
-        }
+        },
+        getTypeName(value){
+             switch (value) {
+                case 'comedy':
+                    return　"コメディ"
+                    break;
+                case 'mystery':
+                    return '推理/サスペンス'
+                    break;
+                case 'school':
+                    return '青春/ドラマ'
+                    break;
+                case 'sports':
+                    return 'スポーツ/競技'
+                    break;
+                case 'romance':
+                    return '恋愛/ラブコメ'
+                    break;
+                case 'adventure':
+                    return'SF/ファンタジー/バトル'
+                    break;
+                default:
+                    return "全部";
+        }}
     }
 }
 </script>
@@ -198,6 +221,11 @@ export default {
 .result {
     display: flex;
     margin-top: 20px;
+    .cardResult{
+      overflow : hidden;
+        text-overflow : ellipsis;
+        white-space : nowrap;
+    }
 }
 
 .result span {
