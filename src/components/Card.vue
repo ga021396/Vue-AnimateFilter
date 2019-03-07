@@ -1,15 +1,15 @@
 <template>
 <div>
     <div class="card" v-for="(item,index) in getData(filterType,searchContent)" :key="index">
-        <iframe width="auto" height="auto" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="auto" height="100%" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
             <div class="name">
                 <span @click="openWebSite(item.web)">{{item.title}}</span>
                 <font-awesome-icon icon="heart" class="icon" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </div>
-            <div class="purpose">{{fakeStory(item.story)}}</div>
-            <div class="result">
-                <span class="cardResult" v-for="(type,index) in getType(item.type) " :key="index">{{getTypeName(type)}}</span>
+            <div class="story">{{fakeStory(item.story)}}</div>
+            <div class="TypeSection">
+                <span class="Typetag" v-for="(type,index) in getType(item.type) " :key="index">{{getTypeName(type)}}</span>
             </div>
         </div>
     </div>
@@ -175,7 +175,7 @@ export default {
 }
 
 .card .introduction {
-    width:50%;
+    width:480px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -184,6 +184,7 @@ export default {
 }
 
 .introduction .name {
+    max-width: 440px;
     height:36px;
     color: #9013FE;
     margin: 10px 0;
@@ -202,15 +203,9 @@ export default {
         }
     }
 }
-
-.aut {
-    font-weight: 600;
-    margin-right: 10px;
-}
-
-.purpose {
+.story {
+    max-width: 440px;
     height: 100px;
-    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -218,17 +213,18 @@ export default {
     -webkit-box-orient: vertical;
 }
 
-.result {
+.TypeSection {
+    max-width: 440px;
     display: flex;
     margin-top: 20px;
-    .cardResult{
+    .Typetag{
       overflow : hidden;
         text-overflow : ellipsis;
         white-space : nowrap;
     }
 }
 
-.result span {
+.TypeSection span {
     padding: 0 15px;
     border-radius: 15px;
     font-size: 16px;
@@ -239,5 +235,25 @@ export default {
     color: #9013FE;
     margin-right: 8px;
     padding-bottom: 7px;
+}
+@media only screen and (max-width: 780px) {
+.card {
+  height:440px;
+  flex-direction: column;
+  .introduction{
+   width:auto;
+   height:120px;
+    }
+ }
+}
+@media only screen and (max-width: 440px) {
+.card {
+  height:280px;
+  flex-direction: column;
+  .introduction{
+   width:auto;
+   height:80px;
+    }
+ }
 }
 </style>
