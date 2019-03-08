@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="card" v-for="(item,index) in getData(filterType,searchContent)" :key="index">
+    <div class="card" v-for="(item,index) in showData(getData(filterType,searchContent))" :key="index">
         <iframe width="auto" height="100%" :src="item.PV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="introduction">
             <div class="name">
@@ -13,6 +13,9 @@
             </div>
         </div>
     </div>
+    <div class="pageBox">
+        <div :class="{'active':currPage===index+1}" class="page" v-for="(item,index) in this.pages" :key="index" @click="setCurrPage(index)">{{index+1}}</div>
+    </div>
 </div>
 </template>
 
@@ -24,11 +27,13 @@ export default {
     data() {
         return {
             MylocalStorage: [],
+            pages:0,
+            currPage:1
         }
     },
     mounted: function () {},
     created: function () {
-        localStorage.clear()
+        // localStorage.clear()
     },
     computed: {
         getLocalStorage() {
@@ -40,6 +45,19 @@ export default {
         }
     },
     methods: {
+        setCurrPage(index){
+            this.currPage=index+1;
+            window.scrollTo({ 
+            top: 0, 
+            behavior: "smooth" 
+        });
+        },
+        showData(list){
+            console.log(list,'1111111111111111')
+            this.pages=Math.ceil(list.length/10)
+            const showTenItem = [...list].slice(10*(this.currPage-1),10*this.currPage);
+            return showTenItem;
+        },
         getData(type, searchContent) {
             //this function render card and filter anime data when search and choose anime type
             let filterList = [...animeData[0]];
@@ -237,6 +255,34 @@ export default {
     color: #9013FE;
     margin-right: 8px;
     padding-bottom: 7px;
+}
+.page{
+    font-size: 16px;
+    padding: 4px;
+    text-align: center;
+    height: 24px;
+    width: 24px;
+    color:#9013FE;
+    border: 1px solid #9013FE;
+    line-height: 24px;
+    margin:0 10px;
+    transition: 3ms all ease-in-out;
+    &:hover{
+        transition: 3ms all ease-in-out;
+         color:white;
+         background:#9013FE;
+    }
+}
+.active{
+     color:white;
+    background:#9013FE;
+}
+.pageBox{
+    display: flex;
+    justify-content: center;
+    padding:10px;
+    margin:0 auto;
+    margin-bottom: 20px;
 }
 @media only screen and (max-width: 780px) {
 .card {

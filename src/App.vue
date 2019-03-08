@@ -1,5 +1,6 @@
 <template>
 <div id="app">
+    <opne></opne>
     <div :class="{'hidden':this.mask}" class="mask" @click="setMask(true)"></div>
     <div :class="{'animation':!this.mask}" class="sidebar">
         <div class="Stitle">
@@ -19,8 +20,8 @@
     <div id="nav">
         <font-awesome-icon icon="bars" class="ham" @click="setMask(false)"/>
         <h1 id="hav">アニ図鑑</h1>
-        <font-awesome-icon icon="coffee" class="icon" />
-        <input type="text" v-model="search" placeholder="Explore your own activites">
+        <font-awesome-icon icon="search" class="icon" />
+        <input type="text" v-model="search" placeholder="Find your favorite anime!">
     </div>
     <div class="container">
             <div id="body">
@@ -33,11 +34,12 @@
 
 <script>
 import Card from './components/Card.vue'
+import Opne from './components/Open.vue'
 
 export default {
     name: 'app',
     components: {
-        Card
+        Card,Opne
     },
     data() {
         return {
@@ -164,7 +166,7 @@ html {
 
 .icon {
     color: white;
-    margin-left: 12%;
+    margin-left: 8%;
 }
 
 ::placeholder {
@@ -283,7 +285,7 @@ html {
     .iconFavor{
         padding-left: 36px;
         font-size: 40px;
-        color:lighten(#2c3e50,40%);
+        color:lighten(#2c3e50,55%);
         transition: all .3s ease-in-out;
     }
 }
@@ -312,7 +314,7 @@ html {
 @media only screen and (max-width: 780px) {
 #body {
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 0 30px;
     width: 100%;
     height: auto;
 }
@@ -327,6 +329,11 @@ html {
 }
 #nav input {
     max-width: 200px;
+}
+}
+@media only screen and (max-width: 440px) {
+    #body {
+    padding: 0 20px;
 }
 }
 </style>
