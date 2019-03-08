@@ -1,29 +1,28 @@
 <template>
 <div id="app">
-    <opne></opne>
-    <div :class="{'hidden':this.mask}" class="mask" @click="setMask(true)"></div>
-    <div :class="{'animation':!this.mask}" class="sidebar">
-        <div class="Stitle">
-            <font-awesome-icon icon="bars" class="Sicon" @click="setMask(true)"/>
-            <span>アニ図鑑</span>
+    <open></open>
+    <div :class="{'mask-hidden':this.mask}" class="mask" @click="setMask(true)"></div>
+    <div :class="{'mask-animation':!this.mask}" class="sidebar">
+        <div class="sidebar-title">
+            <font-awesome-icon icon="bars" class="sidebar-icon" @click="setMask(true)" />
+            <span>animeFilter</span>
         </div>
-        <div class="cate">
+        <div class="categori">
             <h2>カテゴリー</h2>
-            <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}"
-            @click="setValue(item.value)">
+            <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}" @click="setValue(item.value)">
                 <span>{{item.label}}</span>
             </div>
             <h2>マイコレクション</h2>
-            <font-awesome-icon icon="heart" class="iconFavor" :class="{'icon-active':favorite}" @click="setMyFavorite()" />
+            <font-awesome-icon icon="heart" class="icon-favorite" :class="{'icon-active':favorite}" @click="setMyFavorite()" />
         </div>
     </div>
-    <div id="nav">
-        <font-awesome-icon icon="bars" class="ham" @click="setMask(false)"/>
-        <h1 id="hav">アニ図鑑</h1>
-        <font-awesome-icon icon="search" class="icon" />
+    <div id="navbar">
+        <font-awesome-icon icon="bars" class="icon-hamburger" @click="setMask(false)" />
+        <h1 id="navbarTitle">animeFilter</h1>
+        <font-awesome-icon icon="search" class="icon-search" />
         <input type="text" v-model="search" placeholder="Find your favorite anime!">
     </div>
-    <div class="container">
+        <div class="container">
             <div id="body">
                 <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
                 <card :filterType="value" :searchContent="search" :myFavorite="favorite"></card>
@@ -33,17 +32,18 @@
 </template>
 
 <script>
-import Card from './components/Card.vue'
-import Opne from './components/Open.vue'
+import card from './components/Card.vue'
+import open from './components/Open.vue'
 
 export default {
     name: 'app',
     components: {
-        Card,Opne
+        card,
+        open
     },
     data() {
         return {
-            mask:true,
+            mask: true,
             favorite: false,
             search: "",
             options: [{
@@ -76,39 +76,33 @@ export default {
             switch (value) {
                 case 'comedy':
                     return "コメディ"
-                    break;
                 case 'mystery':
                     return '推理/サスペンス'
-                    break;
                 case 'school':
                     return '青春/ドラマ'
-                    break;
                 case 'sports':
                     return 'スポーツ/競技'
-                    break;
                 case 'romance':
                     return '恋愛/ラブコメ'
-                    break;
                 case 'adventure':
                     return 'SF/ファンタジー/バトル'
-                    break;
                 default:
                     return "全部";
             }
         },
-        setMask(mask){
-            this.mask=mask;
+        setMask(mask) {
+            this.mask = mask;
         },
-        getActiveType(value){
-            if(value===this.value)return true;
+        getActiveType(value) {
+            if (value === this.value) return true;
             else return false;
         },
-        setValue(value){
-            this.value=value;
-            this.mask=true;
+        setValue(value) {
+            this.value = value;
+            this.mask = true;
         },
-        setMyFavorite(){
-            this.favorite=!this.favorite;
+        setMyFavorite() {
+            this.favorite = !this.favorite;
         }
     }
 }
@@ -117,6 +111,7 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
 @import url("https://fonts.googleapis.com/earlyaccess/kokoro.css");
+@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
 
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -133,40 +128,39 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-#hav {
+#navbarTitle {
     font-weight: 600;
-    font-family: "M PLUS Rounded 1c";
+    font-family: "Finger Paint"
 }
 
-#nav {
+#navbar {
     width: 100%;
     height: 70px;
     background-color: #7828B4;
     display: flex;
     align-items: center;
 
+    h1 {
+        color: white;
+        margin-left: 40px;
+    }
+
+    input {
+        max-width: 388px;
+        width: 100%;
+        height: 37px;
+        padding-left: 10px;
+        margin-left: 10px;
+        background-color: #7828B4;
+        color: white;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
 }
 
-#nav h1 {
+.icon-search {
     color: white;
-    margin-left: 40px;
-}
-
-#nav input {
-    max-width: 388px;
-    width: 100%;
-    height: 37px;
-    padding-left: 10px;
-    margin-left: 10px;
-    background-color: #7828B4;
-    color: white;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.icon {
-    color: white;
-    margin-left: 8%;
+    margin-left: 60px;
 }
 
 ::placeholder {
@@ -178,28 +172,6 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-
-/*search*/
-#search {
-    float: left;
-    width: 25%;
-    height: auto;
-    margin-left: 3%;
-    background-color: #EBEBEB;
-    max-width: 300px;
-}
-
-#search div {
-    padding: 0 12px;
-}
-
-#location .filter {
-    margin-bottom: 20px;
-}
-
-#location {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #body {
@@ -214,126 +186,150 @@ html {
     font-family: "M PLUS Rounded 1c";
 }
 
-.el-input__suffix {
-    right: 20px !important;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-}
-
-.el-select {
-    margin-bottom: 20px;
-    margin-right: 15px;
-}
-.mask{
-    height:100VH;
-    width:100VW;
+.mask {
+    height: 100VH;
+    width: 100VW;
     position: fixed;
     z-index: 12;
     background: rgba(0, 0, 0, 0.5);
 }
-.sidebar{
+
+.sidebar {
     transition: all .3s ease;
     transform: translateX(-240px);
-    width:240px;
-    height:100VH;
+    width: 240px;
+    height: 100VH;
     position: absolute;
     left: 0;
-    background:#F2F2F2;
+    background: #F2F2F2;
     z-index: 13;
-    .Stitle{
-        color:#7828B4;;
+
+    .sidebar-title {
+        color: #7828B4;
         box-sizing: border-box;
         padding: 20px 20px;
-        width:100%;
-        height:70px;
+        width: 100%;
+        height: 70px;
         font-size: 24px;
-        border-bottom: 1px solid darken(#F2F2F2,10%);
+        border-bottom: 1px solid darken(#F2F2F2, 10%);
         font-weight: 600;
         font-family: "M PLUS Rounded 1c";
         text-align: left;
-        .Sicon{
-            cursor:pointer;
-            padding-right: 28px;
-            padding-left:8px;
+
+        span {
+            font-family: "Finger Paint";
+        }
+
+        .sidebar-icon {
+            cursor: pointer;
+            padding-right: 14px;
+            padding-left: 8px;
         }
     }
-}   
-.hidden{
-    display:none;
 }
-.cate{
+
+.mask-hidden {
+    display: none;
+}
+
+.categori {
     text-align: left;
-    h2{
+
+    h2 {
         padding-left: 28px;
         font-size: 20px;
     }
-    div{
+
+    div {
         cursor: pointer;
         padding-left: 36px;
-        font-size:16px;
-        height:40px;
+        font-size: 16px;
+        height: 40px;
         line-height: 40px;
         font-weight: 600;
         font-family: "M PLUS Rounded 1c";
         transition: all .3s ease-in-out;
-        &:hover{
-            color:white;
-            background:#7828B4;
+
+        &:hover {
+            color: white;
+            background: #7828B4;
         }
 
     }
-    .iconFavor{
+
+    .icon-favorite {
         padding-left: 36px;
         font-size: 40px;
-        color:lighten(#2c3e50,55%);
+        color: lighten(#2c3e50, 55%);
         transition: all .3s ease-in-out;
     }
 }
-.active{
-    color:white;
-    background:#7828B4;
-    &:hover{
-        color:white;
-        background:#7828B4;
+
+.active {
+    color: white;
+    background: #7828B4;
+
+    &:hover {
+        color: white;
+        background: #7828B4;
     }
 }
+
 .icon-active {
-    color: #9013FE!important;
+    color: #9013FE !important;
 }
+
 /* tag */
-.ham {
-        color: white;
-        font-size: 24px;
-        margin-left: 32px;
-        cursor:pointer;
+.icon-hamburger {
+    color: white;
+    font-size: 24px;
+    margin-left: 32px;
+    cursor: pointer;
 }
-.animation{
-    position:fixed;
+
+.mask-animation {
+    position: fixed;
     transform: translateX(0) !important;
 }
+
 @media only screen and (max-width: 780px) {
-#body {
-    box-sizing: border-box;
-    padding: 0 30px;
-    width: 100%;
-    height: auto;
-}
-#hav{
-    display: none;
-}
-.ham {
+    #body {
+        box-sizing: border-box;
+        padding: 0 30px;
+        width: 100%;
+        height: auto;
+    }
+
+    #navbarTitle {
+        display: none;
+    }
+
+    .icon-search {
+        margin-left: 40px;
+    }
+
+    .icon-hamburger {
         color: white;
         font-size: 24px;
         margin-left: 20px;
-        cursor:pointer;
+        cursor: pointer;
+    }
+
+    #navbar input {
+        max-width: 300px;
+    }
 }
-#nav input {
-    max-width: 200px;
-}
-}
+
 @media only screen and (max-width: 440px) {
     #body {
-    padding: 0 20px;
-}
+        padding: 0 20px;
+    }
+
+    #navbar input {
+        max-width: 250px;
+    }
+    .icon-search {
+        margin-left: 20px;
+    }
 }
 </style>
