@@ -14,7 +14,7 @@
                 <span>{{item.label}}</span>
             </div>
             <h2>マイコレクション</h2>
-            <font-awesome-icon icon="heart" class="iconFavor" :class="{'icon-active':favorite}" @click="setMyFavorite(item)" />
+            <font-awesome-icon icon="heart" class="iconFavor" :class="{'icon-active':favorite}" @click="setMyFavorite()" />
         </div>
     </div>
     <div id="nav">

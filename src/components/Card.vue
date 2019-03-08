@@ -55,7 +55,11 @@ export default {
         showData(list){
             console.log(list,'1111111111111111')
             this.pages=Math.ceil(list.length/10)
-            const showTenItem = [...list].slice(10*(this.currPage-1),10*this.currPage);
+            let showTenItem = [...list].slice(10*(this.currPage-1),10*this.currPage);
+            if(showTenItem.length===0){
+                showTenItem =[...list].slice(0,10);
+                this.currPage=1;
+                }
             return showTenItem;
         },
         getData(type, searchContent) {
