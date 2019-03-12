@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <open></open>
+    <!-- <open></open> -->
     <div :class="{'mask-hidden':this.mask}" class="mask" @click="setMask(true)"></div>
     <div :class="{'mask-animation':!this.mask}" class="sidebar">
         <div class="sidebar-title">
@@ -17,10 +17,11 @@
         </div>
     </div>
     <div id="navbar">
-        <font-awesome-icon icon="bars" class="icon-hamburger" @click="setMask(false)" />
-        <h1 id="navbarTitle">animeFilter</h1>
-        <font-awesome-icon icon="search" class="icon-search" />
-        <input type="text" v-model="search" placeholder="Find your favorite anime!">
+            <font-awesome-icon icon="bars" class="icon-hamburger" @click="setMask(false)" />
+            <h1 id="navbarTitle">animeFilter</h1>
+            <font-awesome-icon icon="search" class="icon-search" />
+            <input type="text" v-model="search" placeholder="Find your favorite anime!">
+        <font-awesome-icon icon="user-circle" class="icon-user"/>
     </div>
         <div class="container">
             <div id="body">
@@ -134,15 +135,16 @@ html {
 }
 
 #navbar {
+    position: relative;
+    box-sizing: border-box;
+    padding:0 20px;
     width: 100%;
     height: 70px;
     background-color: #7828B4;
     display: flex;
     align-items: center;
-
     h1 {
         color: white;
-        margin-left: 40px;
     }
 
     input {
@@ -150,17 +152,33 @@ html {
         width: 100%;
         height: 37px;
         padding-left: 10px;
-        margin-left: 10px;
         background-color: #7828B4;
         color: white;
         border: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
 }
+/* tag */
+.icon-hamburger {
+    color: white;
+    font-size: 24px;
+    margin-left:8px;
+    margin-right:14px;
+    cursor: pointer;
+}
+.icon-user{
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right:28px;
+    top:23px;
+}
 
 .icon-search {
+    margin-left:28px;
+    margin-right:14px;
     color: white;
-    margin-left: 60px;
 }
 
 ::placeholder {
@@ -279,13 +297,6 @@ html {
     color: #9013FE !important;
 }
 
-/* tag */
-.icon-hamburger {
-    color: white;
-    font-size: 24px;
-    margin-left: 32px;
-    cursor: pointer;
-}
 
 .mask-animation {
     position: fixed;
@@ -304,18 +315,15 @@ html {
         display: none;
     }
 
-    .icon-search {
-        margin-left: 40px;
-    }
-
     .icon-hamburger {
         color: white;
         font-size: 24px;
-        margin-left: 20px;
         cursor: pointer;
     }
 
+
     #navbar input {
+        width:60%;
         max-width: 300px;
     }
 }
@@ -326,10 +334,10 @@ html {
     }
 
     #navbar input {
-        max-width: 250px;
+        max-width: 220px;
     }
     .icon-search {
-        margin-left: 20px;
+        margin-left: 14px;
     }
 }
 </style>
