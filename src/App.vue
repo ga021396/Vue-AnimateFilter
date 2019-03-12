@@ -176,7 +176,7 @@ html {
 }
 
 .icon-search {
-    margin-left:28px;
+    margin-left:6%;
     margin-right:14px;
     color: white;
 }
@@ -321,6 +321,11 @@ html {
         cursor: pointer;
     }
 
+    .icon-search {
+    margin-left:28px;
+    margin-right:14px;
+    color: white;
+}
 
     #navbar input {
         width:60%;
