@@ -22,6 +22,7 @@
         <font-awesome-icon icon="search" class="icon-search" />
         <input type="text" v-model="search" placeholder="Find your favorite anime!">
         <font-awesome-icon icon="user-circle" class="icon-user" @click="login" />
+        <div v-if="loginTog"></div>
     </div>
     <div class="container">
         <div id="body">
@@ -44,6 +45,8 @@ export default {
     },
     data() {
         return {
+            loginTog:false,
+            profile:'',
             mask: true,
             favorite: false,
             search: "",
@@ -107,13 +110,16 @@ export default {
         },
         getProfile() {
             FB.api('/me?fields=name,id,email', function (response) {
-                console.log('res in graphAPI', response)
+                this.profile=response;
+                console.log(this.profile)
             })
+        },
+        profilePicture() {
+            return (this.profile.id) ? `https://graph.facebook.com/${this.profile.id}/picture?width=300` : `/static/man.gif`
         },
         login() {
             let vm = this
             FB.login(function (response) {
-                console.log('res when login', response)
                 vm.getProfile()
             }, {
                 scope: 'email, public_profile',
@@ -189,6 +195,13 @@ html {
         border: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
+}
+.account{
+    height:100px;
+    width:100px;
+    position:absolute;
+    right:16px;
+    top:100px;
 }
 
 /* tag */
