@@ -1,15 +1,8 @@
 <template>
 <div id="app">
     <!-- <open></open> -->
-    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask"></sidebar>
-    <div id="navbar">
-        <font-awesome-icon icon="bars" class="icon-hamburger" @click="setMask(false)" />
-        <h1 id="navbarTitle">animeFilter</h1>
-        <font-awesome-icon icon="search" class="icon-search" />
-        <input type="text" v-model="search" placeholder="Find your favorite anime!">
-        <font-awesome-icon icon="user-circle" class="icon-user" @click="login" />
-        <div v-if="loginTog"></div>
-    </div>
+    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" />
+    <navbar @setMask="setMask" :search="search" @setSearch="setSearch" />
     <div class="container">
         <div id="body">
             <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
@@ -23,21 +16,22 @@
 import card from './components/Card.vue'
 import open from './components/Open.vue'
 import sidebar from './components/SideBar.vue'
+import navbar from './components/navbar.vue'
 
 export default {
     name: 'app',
     components: {
         card,
         open,
-        sidebar
+        sidebar,
+        navbar
     },
     data() {
         return {
-            loginTog: false,
             profile: '',
             mask: true,
             favorite: false,
-            search: "",
+            search: '',
             value: 'All'
         }
     },
@@ -68,6 +62,9 @@ export default {
         },
         setMyFavorite(value) {
             this.favorite = value;
+        },
+        setSearch(value) {
+            this.search = value;
         },
         getProfile() {
             FB.api('/me?fields=name,id,email', function (response) {
@@ -127,74 +124,6 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-#navbarTitle {
-    font-weight: 600;
-    font-family: "Finger Paint"
-}
-
-#navbar {
-    position: relative;
-    box-sizing: border-box;
-    padding: 0 20px;
-    width: 100%;
-    height: 70px;
-    background-color: #7828B4;
-    display: flex;
-    align-items: center;
-
-    h1 {
-        color: white;
-    }
-
-    input {
-        max-width: 388px;
-        width: 100%;
-        height: 37px;
-        padding-left: 10px;
-        background-color: #7828B4;
-        color: white;
-        border: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    }
-}
-
-.account {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    right: 16px;
-    top: 100px;
-}
-
-/* tag */
-.icon-hamburger {
-    color: white;
-    font-size: 24px;
-    margin-left: 8px;
-    margin-right: 14px;
-    cursor: pointer;
-}
-
-.icon-user {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    right: 28px;
-    top: 23px;
-}
-
-.icon-search {
-    margin-left: 6%;
-    margin-right: 14px;
-    color: white;
-}
-
-::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(255, 255, 255, 0.5);
-}
-
 .container {
     display: flex;
     flex-direction: row;
@@ -220,40 +149,11 @@ html {
         width: 100%;
         height: auto;
     }
-
-    #navbarTitle {
-        display: none;
-    }
-
-    .icon-hamburger {
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .icon-search {
-        margin-left: 28px;
-        margin-right: 14px;
-        color: white;
-    }
-
-    #navbar input {
-        width: 60%;
-        max-width: 300px;
-    }
 }
 
 @media only screen and (max-width: 440px) {
     #body {
         padding: 0 20px;
-    }
-
-    #navbar input {
-        max-width: 220px;
-    }
-
-    .icon-search {
-        margin-left: 14px;
     }
 }
 </style>
