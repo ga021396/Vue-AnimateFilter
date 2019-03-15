@@ -3,10 +3,13 @@
     <div :class="{'mask-hidden':this.mask}" class="mask" @click="setMask()"></div>
     <div :class="{'mask-animation':!this.mask}" class="sidebar">
         <div class="sidebar-title">
-            <font-awesome-icon icon="bars" class="sidebar-icon" @click="setMask()" />
+            <font-awesome-icon  icon="bars" class="sidebar-icon" @click="setMask()" />
             <span>animeFilter</span>
         </div>
         <div class="categori">
+            <font-awesome-icon v-if="!profile.id" icon="user-circle" class="icon-user" @click="login"/>
+            <img v-show="profile.name" :src="profilePicture" alt="profile" class="myIcon" />
+            <h3>{{profile.name||guest}}</h3>
             <h2>カテゴリー</h2>
             <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}" @click="setValue(item.value)">
                 <span>{{item.label}}</span>
@@ -48,7 +51,13 @@ export default {
             }, ],
             value: 'All',
             favorite: false,
+            profile: {}
         }
+    },
+    computed:{
+        profilePicture() {
+            return (this.profile.id) ? `https://graph.facebook.com/${this.profile.id}/picture?width=300` : `/static/man.gif`
+        },
     },
     methods: {
         setMask() {
@@ -67,6 +76,19 @@ export default {
             this.favorite = !this.favorite;
             this.$emit('setMyFavorite', this.favorite);
         },
+        login() {
+            FB.login( (response) => {
+                this.getProfile()
+            }, {
+                scope: 'email, public_profile',
+                return_scopes: true
+            })
+        },
+        getProfile() {
+            FB.api('/me?fields=name,id,email', (response)=> {
+                this.profile = response;
+            })
+        },
     }
 }
 </script>
@@ -74,10 +96,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
-@import url("https://fonts.googleapis.com/earlyaccess/kokoro.css");
-@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
-
 .icon-hamburger {
     color: white;
     font-size: 24px;
@@ -87,12 +105,10 @@ export default {
 }
 
 .icon-user {
-    color: white;
-    font-size: 24px;
+    color: #7828B4;
+    font-size: 100px;
+    margin: 0 auto;
     cursor: pointer;
-    position: absolute;
-    right: 28px;
-    top: 23px;
 }
 
 .mask {
@@ -134,7 +150,14 @@ export default {
             padding-right: 14px;
             padding-left: 8px;
         }
+
     }
+}
+.myIcon{
+    height:100px;
+    width:100px;
+    margin:0 auto;
+    border-radius: 50%;
 }
 
 .mask-hidden {
@@ -142,11 +165,22 @@ export default {
 }
 
 .categori {
+    padding-top: 16px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
 
     h2 {
         padding-left: 28px;
         font-size: 20px;
+    }
+
+    h3 {
+        color: #7828B4;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        padding-top:8px;
     }
 
     div {

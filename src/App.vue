@@ -1,8 +1,8 @@
 <template>
 <div id="app">
     <!-- <open></open> -->
-    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" />
-    <navbar @setMask="setMask" :search="search" @setSearch="setSearch" />
+    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask"/>
+    <navbar @setMask="setMask" :search="search" @setSearch="setSearch"/>
     <div class="container">
         <div id="body">
             <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
@@ -28,10 +28,9 @@ export default {
     },
     data() {
         return {
-            profile: '',
             mask: true,
             favorite: false,
-            search: '',
+            search:'',
             value: 'All'
         }
     },
@@ -63,27 +62,9 @@ export default {
         setMyFavorite(value) {
             this.favorite = value;
         },
-        setSearch(value) {
-            this.search = value;
+        setSearch(value){
+            this.search=value;
         },
-        getProfile() {
-            FB.api('/me?fields=name,id,email', function (response) {
-                this.profile = response;
-                console.log(this.profile)
-            })
-        },
-        profilePicture() {
-            return (this.profile.id) ? `https://graph.facebook.com/${this.profile.id}/picture?width=300` : `/static/man.gif`
-        },
-        login() {
-            let vm = this
-            FB.login(function (response) {
-                vm.getProfile()
-            }, {
-                scope: 'email, public_profile',
-                return_scopes: true
-            })
-        }
     },
     mounted() {
         window.fbAsyncInit = function () {
@@ -94,7 +75,6 @@ export default {
                 version: 'v3.2'
             });
             FB.AppEvents.logPageView();
-            console.log('fbAsyncInit')
             // Get FB Login Status
             FB.getLoginStatus(response => {
                 console.log('res', response) // 這裡可以得到 fb 回傳的結果
@@ -107,7 +87,7 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
 @import url("https://fonts.googleapis.com/earlyaccess/kokoro.css");
-@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
+@import url("https://fonts.googleapis.com/css?family=Finger+Paint");
 
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
