@@ -1,21 +1,7 @@
 <template>
 <div id="app">
     <!-- <open></open> -->
-    <div :class="{'mask-hidden':this.mask}" class="mask" @click="setMask(true)"></div>
-    <div :class="{'mask-animation':!this.mask}" class="sidebar">
-        <div class="sidebar-title">
-            <font-awesome-icon icon="bars" class="sidebar-icon" @click="setMask(true)" />
-            <span>animeFilter</span>
-        </div>
-        <div class="categori">
-            <h2>カテゴリー</h2>
-            <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}" @click="setValue(item.value)">
-                <span>{{item.label}}</span>
-            </div>
-            <h2>マイコレクション</h2>
-            <font-awesome-icon icon="heart" class="icon-favorite" :class="{'icon-active':favorite}" @click="setMyFavorite()" />
-        </div>
-    </div>
+    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask"></sidebar>
     <div id="navbar">
         <font-awesome-icon icon="bars" class="icon-hamburger" @click="setMask(false)" />
         <h1 id="navbarTitle">animeFilter</h1>
@@ -36,42 +22,22 @@
 <script>
 import card from './components/Card.vue'
 import open from './components/Open.vue'
+import sidebar from './components/SideBar.vue'
 
 export default {
     name: 'app',
     components: {
         card,
-        open
+        open,
+        sidebar
     },
     data() {
         return {
-            loginTog:false,
-            profile:'',
+            loginTog: false,
+            profile: '',
             mask: true,
             favorite: false,
             search: "",
-            options: [{
-                value: 'All',
-                label: '全部'
-            }, {
-                value: 'comedy',
-                label: 'コメディ'
-            }, {
-                value: 'sports',
-                label: 'スポーツ/競技'
-            }, {
-                value: 'romance',
-                label: '恋愛/ラブコメ'
-            }, {
-                value: 'adventure',
-                label: 'SF/ファンタジー/バトル'
-            }, {
-                value: 'school',
-                label: '青春/ドラマ',
-            }, {
-                value: 'mystery',
-                label: '推理/サスペンス'
-            }, ],
             value: 'All'
         }
     },
@@ -97,20 +63,15 @@ export default {
         setMask(mask) {
             this.mask = mask;
         },
-        getActiveType(value) {
-            if (value === this.value) return true;
-            else return false;
-        },
         setValue(value) {
             this.value = value;
-            this.mask = true;
         },
-        setMyFavorite() {
-            this.favorite = !this.favorite;
+        setMyFavorite(value) {
+            this.favorite = value;
         },
         getProfile() {
             FB.api('/me?fields=name,id,email', function (response) {
-                this.profile=response;
+                this.profile = response;
                 console.log(this.profile)
             })
         },
@@ -196,12 +157,13 @@ html {
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
 }
-.account{
-    height:100px;
-    width:100px;
-    position:absolute;
-    right:16px;
-    top:100px;
+
+.account {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 16px;
+    top: 100px;
 }
 
 /* tag */
@@ -249,104 +211,6 @@ html {
     text-align: left;
     font-weight: 600;
     font-family: "M PLUS Rounded 1c";
-}
-
-.mask {
-    height: 100VH;
-    width: 100VW;
-    position: fixed;
-    z-index: 12;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.sidebar {
-    transition: all .3s ease;
-    transform: translateX(-240px);
-    width: 240px;
-    height: 100VH;
-    position: absolute;
-    left: 0;
-    background: #F2F2F2;
-    z-index: 13;
-
-    .sidebar-title {
-        color: #7828B4;
-        box-sizing: border-box;
-        padding: 20px 20px;
-        width: 100%;
-        height: 70px;
-        font-size: 24px;
-        border-bottom: 1px solid darken(#F2F2F2, 10%);
-        font-weight: 600;
-        font-family: "M PLUS Rounded 1c";
-        text-align: left;
-
-        span {
-            font-family: "Finger Paint";
-        }
-
-        .sidebar-icon {
-            cursor: pointer;
-            padding-right: 14px;
-            padding-left: 8px;
-        }
-    }
-}
-
-.mask-hidden {
-    display: none;
-}
-
-.categori {
-    text-align: left;
-
-    h2 {
-        padding-left: 28px;
-        font-size: 20px;
-    }
-
-    div {
-        cursor: pointer;
-        padding-left: 36px;
-        font-size: 16px;
-        height: 40px;
-        line-height: 40px;
-        font-weight: 600;
-        font-family: "M PLUS Rounded 1c";
-        transition: all .3s ease-in-out;
-
-        &:hover {
-            color: white;
-            background: #7828B4;
-        }
-
-    }
-
-    .icon-favorite {
-        padding-left: 36px;
-        font-size: 40px;
-        color: lighten(#2c3e50, 55%);
-        transition: all .3s ease-in-out;
-    }
-}
-
-.active {
-    color: white;
-    background: #7828B4;
-
-    &:hover {
-        color: white;
-        background: #7828B4;
-    }
-}
-
-.icon-active {
-    color: #9013FE !important;
-}
-
-.mask-animation {
-    position: fixed;
-    transform: translateX(0) !important;
 }
 
 @media only screen and (max-width: 780px) {
