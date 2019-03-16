@@ -7,15 +7,17 @@
             <span>animeFilter</span>
         </div>
         <div class="categori">
+            <span v-if="profile.id" class="setting">
+                <font-awesome-icon  icon="star" class="icon" :class="{'icon-active':favorite}" @click="setMyFavorite()"/>
+                <font-awesome-icon  icon="sign-out-alt" class="icon" @click="logout"/>
+            </span>
             <font-awesome-icon v-if="!profile.id" icon="user-circle" class="icon-user" @click="login"/>
             <img v-show="profile.name" :src="profilePicture" alt="profile" class="myIcon" />
-            <h3>{{profile.name||guest}}</h3>
+            <h3>{{profile.name}}</h3>
             <h2>カテゴリー</h2>
             <div v-for="(item,index) in options" :key="index" :class="{'active':getActiveType(item.value)}" @click="setValue(item.value)">
                 <span>{{item.label}}</span>
             </div>
-            <h2>マイコレクション</h2>
-            <font-awesome-icon icon="heart" class="icon-favorite" :class="{'icon-active':favorite}" @click="setMyFavorite()" />
         </div>
     </div>
 </div>
@@ -63,6 +65,9 @@ export default {
         setMask() {
             this.$emit('setMask', true);
         },
+        setUserStatus(val){
+            this.$emit('setUserStatus', val);
+        },
         getActiveType(value) {
             if (value === this.value) return true;
             else return false;
@@ -78,11 +83,31 @@ export default {
         },
         login() {
             FB.login( (response) => {
-                this.getProfile()
+                this.statusChangeCallback(response);
             }, {
                 scope: 'email, public_profile',
                 return_scopes: true
             })
+        },
+        logout () {
+            FB.logout( (response)=> {
+                this.profile={};
+                this.statusChangeCallback(response);
+            })
+        },
+        statusChangeCallback (response) {
+            let vm = this
+            if (response.status === 'connected') {
+                vm.getProfile()
+                this.setUserStatus(true)
+            } else if (response.status === 'not_authorized') {
+                this.setUserStatus(false)
+            } else if (response.status === 'unknown') {
+                vm.profile = {}
+                this.setUserStatus(false)
+            } else {
+                this.setUserStatus(false)
+            }
         },
         getProfile() {
             FB.api('/me?fields=name,id,email', (response)=> {
@@ -169,6 +194,22 @@ export default {
     text-align: left;
     display: flex;
     flex-direction: column;
+    .setting{
+        padding:0;
+        width:100%;
+        height:20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+         .icon{
+            font-size: 20px;
+            color: lighten(#2c3e50, 55%);
+            transition: all .3s ease-in-out;
+            &:hover{
+                color: #7828B4;
+            }
+    }
+    }
 
     h2 {
         padding-left: 28px;
@@ -176,6 +217,7 @@ export default {
     }
 
     h3 {
+        font-family: 'Noto Sans TC', sans-serif;
         color: #7828B4;
         text-align: center;
         padding: 0;

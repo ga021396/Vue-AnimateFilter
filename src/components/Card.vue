@@ -5,7 +5,7 @@
         <div class="introduction">
             <div class="name">
                 <span @click="openWebSite(item.web)">{{item.title}}</span>
-                <font-awesome-icon icon="heart" class="icon-heart" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
+                <font-awesome-icon v-if="userStatus" icon="star" class="icon-heart" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </div>
             <div class="story">{{checkStory(item.story)}}</div>
             <div class="TypeSection">
@@ -23,7 +23,7 @@
 import animeData from '../../data.js'
 export default {
     name: 'card',
-    props: ['filterType', 'searchContent', 'myFavorite'],
+    props: ['filterType', 'searchContent', 'myFavorite','userStatus'],
     data() {
         return {
             MylocalStorage: [],

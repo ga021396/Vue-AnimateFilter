@@ -1,12 +1,12 @@
 <template>
 <div id="app">
     <!-- <open></open> -->
-    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask"/>
+    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" @setUserStatus="setUserStatus"/>
     <navbar @setMask="setMask" :search="search" @setSearch="setSearch"/>
     <div class="container">
         <div id="body">
             <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
-            <card :filterType="value" :searchContent="search" :myFavorite="favorite"></card>
+            <card :filterType="value" :searchContent="search" :myFavorite="favorite" :userStatus="UserStatus"></card>
         </div>
     </div>
 </div>
@@ -31,7 +31,8 @@ export default {
             mask: true,
             favorite: false,
             search:'',
-            value: 'All'
+            value: 'All',
+            UserStatus:false,
         }
     },
     methods: {
@@ -65,6 +66,9 @@ export default {
         setSearch(value){
             this.search=value;
         },
+        setUserStatus(value){
+            this.UserStatus=value;
+        }
     },
     mounted() {
         window.fbAsyncInit = function () {
@@ -88,6 +92,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
 @import url("https://fonts.googleapis.com/earlyaccess/kokoro.css");
 @import url("https://fonts.googleapis.com/css?family=Finger+Paint");
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
 
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
