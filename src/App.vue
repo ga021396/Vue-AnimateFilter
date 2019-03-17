@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <!-- <open></open> -->
+    <open></open>
     <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" @setUserStatus="setUserStatus"/>
     <navbar @setMask="setMask" :search="search" @setSearch="setSearch"/>
     <div class="container">
