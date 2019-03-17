@@ -17,7 +17,6 @@ import card from './components/Card.vue'
 import open from './components/Open.vue'
 import sidebar from './components/SideBar.vue'
 import navbar from './components/navbar.vue'
-import db from './assets/firebase.js'
 
 export default {
     name: 'app',
@@ -33,7 +32,7 @@ export default {
             favorite: false,
             search: '',
             value: 'All',
-            UserStatus: false,
+            UserStatus: {},
         }
     },
     methods: {
