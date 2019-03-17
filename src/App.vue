@@ -1,8 +1,8 @@
 <template>
 <div id="app">
     <!-- <open></open> -->
-    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" @setUserStatus="setUserStatus" />
-    <navbar @setMask="setMask" :search="search" @setSearch="setSearch" />
+    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" @setUserStatus="setUserStatus"/>
+    <navbar @setMask="setMask" :search="search" @setSearch="setSearch"/>
     <div class="container">
         <div id="body">
             <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
@@ -17,7 +17,6 @@ import card from './components/Card.vue'
 import open from './components/Open.vue'
 import sidebar from './components/SideBar.vue'
 import navbar from './components/navbar.vue'
-import db from './assets/firebase.js'
 
 export default {
     name: 'app',
@@ -31,9 +30,9 @@ export default {
         return {
             mask: true,
             favorite: false,
-            search: '',
+            search:'',
             value: 'All',
-            UserStatus: false,
+            UserStatus:false,
         }
     },
     methods: {
@@ -64,11 +63,11 @@ export default {
         setMyFavorite(value) {
             this.favorite = value;
         },
-        setSearch(value) {
-            this.search = value;
+        setSearch(value){
+            this.search=value;
         },
-        setUserStatus(value) {
-            this.UserStatus = value;
+        setUserStatus(value){
+            this.UserStatus=value;
         }
     },
     mounted() {
