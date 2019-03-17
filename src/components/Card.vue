@@ -5,7 +5,7 @@
         <div class="introduction">
             <div class="name">
                 <span @click="openWebSite(item.web)">{{item.title}}</span>
-                <font-awesome-icon v-if="userStatus.id" icon="star" class="icon-heart" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
+                <font-awesome-icon v-if="userStatus" icon="star" class="icon-heart" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </div>
             <div class="story">{{checkStory(item.story)}}</div>
             <div class="TypeSection">
@@ -21,8 +21,6 @@
 
 <script>
 import animeData from '../../data.js'
-import $firestore from '../assets/firebase.js'
-
 export default {
     name: 'card',
     props: ['filterType', 'searchContent', 'myFavorite','userStatus'],
@@ -31,7 +29,6 @@ export default {
             MylocalStorage: [],
             pageSize: 0,
             currentPage: 1,
-            userFireData:{},
         }
     },
     watch: {
@@ -44,13 +41,7 @@ export default {
         },
         myFavorite() {
             this.setCurrentPage(0)
-        },
-        userStatus(value){
-            this.getUserData();
-        },
-        userFireData(val){
-            console.log(val)
-         }
+        }
     },
     computed: {
         getLocalStorage() {
@@ -59,17 +50,9 @@ export default {
                 content: []
             };
             return this.MylocalStorage;
-        },
+        }
     },
     methods: {
-        getUserData(){
-            if(this.userStatus.id){
-                const doc =$firestore.doc(`users/${this.userStatus.id}`)
-                doc.get().then((doc)=>{
-                    this.userFireData = doc.data()
-                    })
-            }
-        },
         setCurrentPage(index) {
             this.currentPage = index + 1;
             window.scrollTo({
@@ -152,15 +135,6 @@ export default {
                 this.getLocalStorage.content.push(anime)
             }
             localStorage.setItem('content', JSON.stringify(this.getLocalStorage));
-
-            //
-            const doc =$firestore.doc(`users/${this.userStatus.id}`)
-            const is =this.userFireData.favorite.findIndex(item =>item.title ===anime.title);
-            if(is !== -1){
-                
-            }else{
-
-            }
         },
         getMyFavorite(anime) {
             //this function return your favorite anime

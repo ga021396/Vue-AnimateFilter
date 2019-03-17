@@ -14,9 +14,8 @@ import 'firebase/firestore'
     messagingSenderId: "527533106109"
   };
   firebase.initializeApp(config);
-  //--
-  const $firestore = firebase.firestore();
-  const doc =$firestore.doc("users/user01")
+  const firestore = firebase.firestore();
+  const doc =firestore.doc("users/user01")
   doc.set({
           name: "cliff",
           gender: "male",
@@ -32,4 +31,4 @@ import 'firebase/firestore'
   doc.get().then((doc)=>console.log(doc))
     
 
-export default $firestore
+export const db = firebase.firestore()
