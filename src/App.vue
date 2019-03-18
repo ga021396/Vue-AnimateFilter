@@ -1,8 +1,8 @@
 <template>
 <div id="app">
     <open></open>
-    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" @setUserStatus="setUserStatus"/>
-    <navbar @setMask="setMask" :search="search" @setSearch="setSearch"/>
+    <sidebar @setValue="setValue" @setMyFavorite="setMyFavorite" @setMask="setMask" :mask="mask" @setUserStatus="setUserStatus" />
+    <navbar @setMask="setMask" :search="search" @setSearch="setSearch" />
     <div class="container">
         <div id="body">
             <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
