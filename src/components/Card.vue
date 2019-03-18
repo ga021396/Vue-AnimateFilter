@@ -5,7 +5,7 @@
         <div class="introduction">
             <div class="name">
                 <span @click="openWebSite(item.web)">{{item.title}}</span>
-                <font-awesome-icon v-if="userStatus.id" icon="star" class="icon-heart" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
+                <font-awesome-icon v-if="userStatus" icon="star" class="icon-heart" :class="{'icon-active':getMyFavorite(item)}" @click="setMyFavorite(item)" />
             </div>
             <div class="story">{{checkStory(item.story)}}</div>
             <div class="TypeSection">
@@ -21,8 +21,6 @@
 
 <script>
 import animeData from '../../data.js'
-import $firestore from '../assets/firebase.js'
-
 export default {
     name: 'card',
     props: ['filterType', 'searchContent', 'myFavorite', 'userStatus'],

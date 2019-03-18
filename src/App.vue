@@ -30,9 +30,9 @@ export default {
         return {
             mask: true,
             favorite: false,
-            search: '',
+            search:'',
             value: 'All',
-            UserStatus: {},
+            UserStatus:false,
         }
     },
     methods: {
@@ -63,11 +63,11 @@ export default {
         setMyFavorite(value) {
             this.favorite = value;
         },
-        setSearch(value) {
-            this.search = value;
+        setSearch(value){
+            this.search=value;
         },
-        setUserStatus(value) {
-            this.UserStatus = value;
+        setUserStatus(value){
+            this.UserStatus=value;
         }
     },
     mounted() {

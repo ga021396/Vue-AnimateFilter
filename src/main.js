@@ -5,10 +5,9 @@ import { faUserCircle,faHeart,faBars,faSearch,faStar,faSignOutAlt } from '@forta
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import VueFire from 'vuefire'
 import './assets/fb'
 
-Vue.use(VueAxios, axios,VueFire)
+Vue.use(VueAxios, axios)
 Vue.prototype.$axios=axios;
 
 library.add(faUserCircle,faHeart,faBars,faSearch,faStar,faSignOutAlt)

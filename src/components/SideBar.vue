@@ -99,19 +99,19 @@ export default {
             let vm = this
             if (response.status === 'connected') {
                 vm.getProfile()
+                this.setUserStatus(true)
             } else if (response.status === 'not_authorized') {
-                this.setUserStatus({})
+                this.setUserStatus(false)
             } else if (response.status === 'unknown') {
                 vm.profile = {}
-                this.setUserStatus({})
+                this.setUserStatus(false)
             } else {
-                this.setUserStatus({})
+                this.setUserStatus(false)
             }
         },
         getProfile() {
             FB.api('/me?fields=name,id,email', (response)=> {
                 this.profile = response;
-                this.setUserStatus(this.profile)
             })
         },
     }
