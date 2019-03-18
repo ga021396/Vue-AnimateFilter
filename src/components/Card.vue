@@ -25,13 +25,13 @@ import $firestore from '../assets/firebase.js'
 
 export default {
     name: 'card',
-    props: ['filterType', 'searchContent', 'myFavorite','userStatus'],
+    props: ['filterType', 'searchContent', 'myFavorite', 'userStatus'],
     data() {
         return {
             MylocalStorage: [],
             pageSize: 0,
             currentPage: 1,
-            userFireData:{},
+            userFireData: {favorites:[]},
         }
     },
     watch: {
@@ -45,29 +45,35 @@ export default {
         myFavorite() {
             this.setCurrentPage(0)
         },
-        userStatus(value){
-            this.getUserData();
-        },
-        userFireData(val){
-            console.log(val)
-         }
-    },
-    computed: {
-        getLocalStorage() {
-            //this function get localstorage
-            this.MylocalStorage = (localStorage.getItem('content')) ? JSON.parse(localStorage.getItem('content')) : {
-                content: []
-            };
-            return this.MylocalStorage;
+        userStatus(value) {
+            //when props get fb login , link to firebase by fbID 
+            if(value.id){
+            let myFirstPromise = new Promise((resolve, reject) => {
+                const doc = $firestore.doc(`users/${value.id}`)
+                doc.get().then((doc) => {
+                    if(!doc.data().favorites)resolve(this.userFireData);
+                    else{ this.userFireData = doc.data()}
+                });
+            });
+            //If no any data in firebase set a empty [] for init
+            myFirstPromise.then((data) => {
+                if (!!data) {
+                    this.setUserData([]);
+                }
+            });
+            }else{
+                this.userFireData={favorites:[]};
+            }
         },
     },
     methods: {
-        getUserData(){
-            if(this.userStatus.id){
-                const doc =$firestore.doc(`users/${this.userStatus.id}`)
-                doc.get().then((doc)=>{
-                    this.userFireData = doc.data()
-                    })
+        setUserData(value) {
+            //save data to firebase
+            if (this.userStatus.id) {
+                const doc = $firestore.doc(`users/${this.userStatus.id}`)
+                doc.set({
+                    favorites: value
+                });
             }
         },
         setCurrentPage(index) {
@@ -92,7 +98,7 @@ export default {
             //this function return animeData which though filter (by type,favorite,search)
             let filterList = [...animeData[0]];
             if (this.myFavorite) {
-                filterList = this.getLocalStorage.content;
+                filterList = this.userFireData.favorites;
             }
             if (this.searchContent.trim() !== '') {
                 filterList = filterList.filter(item => item.title.toLowerCase().indexOf(this.searchContent.toLowerCase()) > -1)
@@ -144,31 +150,24 @@ export default {
             else return story;
         },
         setMyFavorite(anime) {
-            //this function save/remove your favorite anime to localstorage 
-            const isMyName = this.getLocalStorage.content.findIndex(item => item.title === anime.title);
-            if (isMyName !== -1) {
-                this.getLocalStorage.content.splice(isMyName, 1)
+            //this function save/remove your favorite anime to firebase 
+            const isMyfire = this.userFireData.favorites.findIndex(item => item.title === anime.title);
+            if (isMyfire !== -1) {
+                this.userFireData.favorites.splice(isMyfire, 1)
             } else {
-                this.getLocalStorage.content.push(anime)
+                this.userFireData.favorites.push(anime)
             }
-            localStorage.setItem('content', JSON.stringify(this.getLocalStorage));
-
-            //
-            const doc =$firestore.doc(`users/${this.userStatus.id}`)
-            const is =this.userFireData.favorite.findIndex(item =>item.title ===anime.title);
-            if(is !== -1){
-                
-            }else{
-
-            }
+            this.setUserData(this.userFireData.favorites);
         },
         getMyFavorite(anime) {
             //this function return your favorite anime
-            const isMyName = this.getLocalStorage.content.findIndex(item => item.title === anime.title);
-            if (isMyName !== -1) {
-                return true
-            } else {
-                return false;
+            if (this.userFireData.favorites) {
+                const isMyfire = this.userFireData.favorites.findIndex(item => item.title === anime.title);
+                if (isMyfire !== -1) {
+                    return true
+                } else {
+                    return false;
+                }
             }
         },
         openWebSite(url) {
