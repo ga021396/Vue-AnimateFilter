@@ -3,7 +3,10 @@
     <item v-if="hiddenItem" @showItem="showItem"></item>
     <div class="box" v-if="!hiddenItem">
       <div class="title">
-        <span class="tag">CCCLOTHES</span>
+        <div class="back">
+          <font-awesome-icon icon="arrow-left"/>
+          <span class="tag">BACK HOME</span>
+        </div>
         <span class="txt">MEN’S TOPS</span>
       </div>
       <div class="container1">
@@ -148,6 +151,10 @@ h1 {
 }
 .title {
   grid-area: title;
+  .back {
+    display: flex;
+    align-items: center;
+  }
   .tag {
     font-size: 20px;
     position: absolute;
@@ -156,7 +163,7 @@ h1 {
     text-align: center;
     color: white;
     background-color: black;
-    left: 50%;
+    left: 10%;
     transform: translate(-50%, 0);
   }
   .txt {

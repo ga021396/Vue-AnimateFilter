@@ -1,26 +1,28 @@
 <template>
   <div id="app">
     <!-- <open></open> -->
-    <!-- <sidebar
-      @setValue="setValue"
-      @setMyFavorite="setMyFavorite"
-      @setMask="setMask"
-      :mask="mask"
-      @setUserStatus="setUserStatus"
-    />
-    <navbar @setMask="setMask" :search="search" @setSearch="setSearch"/>-->
-    <!-- <div class="container">
-      <div id="body">
-        <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
-        <card
-          :filterType="value"
-          :searchContent="search"
-          :myFavorite="favorite"
-          :userStatus="UserStatus"
-        ></card>
+    <template v-if="!gallery">
+      <sidebar
+        @setValue="setValue"
+        @setMyFavorite="setMyFavorite"
+        @setMask="setMask"
+        :mask="mask"
+        @setUserStatus="setUserStatus"
+      />
+      <navbar @setMask="setMask" :search="search" @setSearch="setSearch" @setGallery="setGallery"/>
+      <div class="container">
+        <div id="body">
+          <h2 class="howmany">カテゴリー：{{getTypeName(value)}}</h2>
+          <card
+            :filterType="value"
+            :searchContent="search"
+            :myFavorite="favorite"
+            :userStatus="UserStatus"
+          ></card>
+        </div>
       </div>
-    </div>-->
-    <home-page></home-page>
+    </template>
+    <home-page v-if="gallery"></home-page>
   </div>
 </template>
 
@@ -42,6 +44,7 @@ export default {
   },
   data() {
     return {
+      gallery: false,
       mask: true,
       favorite: false,
       search: "",
@@ -82,6 +85,9 @@ export default {
     },
     setUserStatus(value) {
       this.UserStatus = value;
+    },
+    setGallery(value) {
+      this.gallery = value;
     }
   },
   mounted() {

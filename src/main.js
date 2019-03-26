@@ -7,7 +7,9 @@ import {
   faBars,
   faSearch,
   faStar,
-  faSignOutAlt
+  faSignOutAlt,
+  faArrowLeft,
+  faHome
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
@@ -20,13 +22,21 @@ import router from "./router";
 Vue.use(VueAxios, axios, VueFire, VueRouter);
 Vue.prototype.$axios = axios;
 
-library.add(faUserCircle, faHeart, faBars, faSearch, faStar, faSignOutAlt);
+library.add(
+  faUserCircle,
+  faHeart,
+  faBars,
+  faSearch,
+  faStar,
+  faSignOutAlt,
+  faArrowLeft,
+  faHome
+);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
 new Vue({
-  // router,
   render: h => h(App)
 }).$mount("#app");
