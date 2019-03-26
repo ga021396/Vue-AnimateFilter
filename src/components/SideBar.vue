@@ -144,6 +144,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss" scoped>
+$mainColor: #7828b4;
 .icon-hamburger {
   color: white;
   font-size: 24px;
@@ -153,7 +154,7 @@ export default {
 }
 
 .icon-user {
-  color: #7828b4;
+  color: $mainColor;
   font-size: 100px;
   margin: 0 auto;
   cursor: pointer;
@@ -178,7 +179,7 @@ export default {
   z-index: 13;
 
   .sidebar-title {
-    color: #7828b4;
+    color: $mainColor;
     box-sizing: border-box;
     padding: 20px 20px;
     width: 100%;
@@ -228,7 +229,7 @@ export default {
       color: lighten(#2c3e50, 55%);
       transition: all 0.3s ease-in-out;
       &:hover {
-        color: #7828b4;
+        color: $mainColor;
       }
     }
   }
@@ -240,7 +241,7 @@ export default {
 
   h3 {
     font-family: "Noto Sans TC", sans-serif;
-    color: #7828b4;
+    color: $mainColor;
     text-align: center;
     padding: 0;
     margin: 0;
@@ -259,7 +260,7 @@ export default {
 
     &:hover {
       color: white;
-      background: #7828b4;
+      background: $mainColor;
     }
   }
 
@@ -273,11 +274,11 @@ export default {
 
 .active {
   color: white;
-  background: #7828b4;
+  background: $mainColor;
 
   &:hover {
     color: white;
-    background: #7828b4;
+    background: $mainColor;
   }
 }
 
