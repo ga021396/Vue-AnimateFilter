@@ -30,6 +30,7 @@ import open from "./components/Open.vue";
 import sidebar from "./components/SideBar.vue";
 import navbar from "./components/navbar.vue";
 import homePage from "./components/homePage.vue";
+import item from "./components/item.vue";
 
 export default {
   name: "app",
@@ -38,7 +39,8 @@ export default {
     open,
     sidebar,
     navbar,
-    homePage
+    homePage,
+    item
   },
   data() {
     return {
