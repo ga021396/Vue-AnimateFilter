@@ -1,76 +1,91 @@
 <template>
-  <div class="box">
-    <div class="title">
-      <span class="tag">CCCLOTHES</span>
-      <span class="txt">MEN’S TOPS</span>
-    </div>
-    <div class="container1">
-      <h1>LINEN BLAZER</h1>
-      <div class="img"></div>
-      <div class="border"></div>
-      <h2>01</h2>
-      <div class="patt"></div>
-      <p class="outfit">Men’s outfit</p>
-    </div>
-    <div class="container2">
-      <div class="border"></div>
-      <div class="img"></div>
-      <div class="backpatt"></div>
-      <h2 class="t03">03</h2>
-      <h2 class="patt">Men’s pattern shirts</h2>
-      <h2 class="super">SUPER SKINNY</h2>
-    </div>
-    <div class="container3">
-      <h1>SWEATSHIRTS</h1>
-      <div class="img"></div>
-      <div class="border"></div>
-      <h2>05</h2>
-      <div class="patt"></div>
-      <p class="jacket">Men’s jacket</p>
-    </div>
-    <div class="container4">
-      <div class="border"></div>
-      <div class="img"></div>
-      <div class="backpatt"></div>
-      <h2 class="t07">07</h2>
-      <h2 class="shirt">Men’s shirts</h2>
-      <h2 class="edi">EDITION</h2>
-    </div>
-    <div class="container5">
-      <div class="border"></div>
-      <div class="img"></div>
-      <div class="backpatt"></div>
-      <h2 class="t02">02</h2>
-      <h2 class="basic">Men’s basics</h2>
-      <h2 class="free">FREELIFT</h2>
-    </div>
-    <div class="container6">
-      <h1>DENIM</h1>
-      <div class="img"></div>
-      <div class="border"></div>
-      <h2>04</h2>
-      <div class="patt"></div>
-      <p class="cadual">Men’s cadual</p>
-    </div>
-    <div class="container7">
-      <div class="border"></div>
-      <div class="img"></div>
-      <div class="backpatt"></div>
-      <h2 class="t06">06</h2>
-      <h2 class="classic">Men’s classic</h2>
-      <h2 class="vin">VINTAGE DENIM</h2>
+  <div>
+    <item v-if="hiddenItem" @showItem="showItem"></item>
+    <div class="box" v-if="!hiddenItem">
+      <div class="title">
+        <span class="tag">CCCLOTHES</span>
+        <span class="txt">MEN’S TOPS</span>
+      </div>
+      <div class="container1">
+        <h1>LINEN BLAZER</h1>
+        <div class="img" @click="showItem(true)"></div>
+        <div class="border"></div>
+        <h2>01</h2>
+        <div class="patt"></div>
+        <p class="outfit">Men’s outfit</p>
+      </div>
+      <div class="container2">
+        <div class="border"></div>
+        <div class="img"></div>
+        <div class="backpatt"></div>
+        <h2 class="t03">03</h2>
+        <h2 class="patt">Men’s pattern shirts</h2>
+        <h2 class="super">SUPER SKINNY</h2>
+      </div>
+      <div class="container3">
+        <h1>SWEATSHIRTS</h1>
+        <div class="img"></div>
+        <div class="border"></div>
+        <h2>05</h2>
+        <div class="patt"></div>
+        <p class="jacket">Men’s jacket</p>
+      </div>
+      <div class="container4">
+        <div class="border"></div>
+        <div class="img"></div>
+        <div class="backpatt"></div>
+        <h2 class="t07">07</h2>
+        <h2 class="shirt">Men’s shirts</h2>
+        <h2 class="edi">EDITION</h2>
+      </div>
+      <div class="container5">
+        <div class="border"></div>
+        <div class="img"></div>
+        <div class="backpatt"></div>
+        <h2 class="t02">02</h2>
+        <h2 class="basic">Men’s basics</h2>
+        <h2 class="free">FREELIFT</h2>
+      </div>
+      <div class="container6">
+        <h1>DENIM</h1>
+        <div class="img"></div>
+        <div class="border"></div>
+        <h2>04</h2>
+        <div class="patt"></div>
+        <p class="cadual">Men’s cadual</p>
+      </div>
+      <div class="container7">
+        <div class="border"></div>
+        <div class="img"></div>
+        <div class="backpatt"></div>
+        <h2 class="t06">06</h2>
+        <h2 class="classic">Men’s classic</h2>
+        <h2 class="vin">VINTAGE DENIM</h2>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import item from "./item.vue";
+
 export default {
   name: "homePage",
+  components: { item },
   props: [],
   data() {
-    return {};
+    return {
+      hiddenItem: false
+    };
   },
-  mounted: function() {}
+  mounted: function() {
+    console.log(this.hiddenItem);
+  },
+  methods: {
+    showItem(val) {
+      this.hiddenItem = val;
+    }
+  }
 };
 </script>
 

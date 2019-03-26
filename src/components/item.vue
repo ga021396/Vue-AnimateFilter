@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div @click="showItem()">item</div>
 </template>
 
 <script>
@@ -9,7 +9,12 @@ export default {
   data() {
     return {};
   },
-  mounted: function() {}
+  mounted: function() {},
+  methods: {
+    showItem() {
+      this.$emit("showItem", false);
+    }
+  }
 };
 </script>
 
