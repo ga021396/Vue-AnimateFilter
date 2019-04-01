@@ -22,7 +22,7 @@
         </div>
       </div>
     </template>
-    <home-page v-if="gallery"></home-page>
+    <home-page v-if="gallery" @setGallery="setGallery"></home-page>
   </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      gallery: false,
+      gallery: true,
       mask: true,
       favorite: false,
       search: "",

@@ -62,7 +62,7 @@ export default {
   }
 
   input {
-    max-width: 388px;
+    max-width: 365px;
     width: 100%;
     height: 37px;
     padding-left: 10px;
@@ -92,8 +92,8 @@ export default {
 .icon-home {
   color: white;
   font-size: 24px;
-  margin-left: 8px;
-  margin-right: 28px;
+  position: absolute;
+  right: 28px;
   cursor: pointer;
 }
 .icon-user {
@@ -117,6 +117,9 @@ export default {
 }
 
 @media only screen and (max-width: 780px) {
+  .icon-home {
+    display: none;
+  }
   #navbarTitle {
     display: none;
   }

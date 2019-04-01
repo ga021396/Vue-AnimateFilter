@@ -3,67 +3,67 @@
     <item v-if="hiddenItem" @showItem="showItem"></item>
     <div class="box" v-if="!hiddenItem">
       <div class="title">
-        <div class="back">
+        <div class="back" @click="setGallery">
           <font-awesome-icon icon="arrow-left"/>
-          <span class="tag">BACK HOME</span>
+          <span class="tag">FILTER</span>
         </div>
-        <span class="txt">MEN’S TOPS</span>
+        <span class="txt">WINTER SELECTIONS</span>
       </div>
       <div class="container1">
-        <h1>LINEN BLAZER</h1>
+        <h1>{{this.animation[0].title}}</h1>
         <div class="img" @click="showItem(true)"></div>
         <div class="border"></div>
         <h2>01</h2>
         <div class="patt"></div>
-        <p class="outfit">Men’s outfit</p>
+        <p class="outfit">{{this.animation[0].summary}}</p>
       </div>
       <div class="container2">
         <div class="border"></div>
         <div class="img"></div>
         <div class="backpatt"></div>
         <h2 class="t03">03</h2>
-        <h2 class="patt">Men’s pattern shirts</h2>
-        <h2 class="super">SUPER SKINNY</h2>
+        <h2 class="patt">{{this.animation[2].summary}}</h2>
+        <h2 class="super">{{this.animation[2].title}}</h2>
       </div>
       <div class="container3">
-        <h1>SWEATSHIRTS</h1>
+        <h1>{{this.animation[4].title}}</h1>
         <div class="img"></div>
         <div class="border"></div>
         <h2>05</h2>
         <div class="patt"></div>
-        <p class="jacket">Men’s jacket</p>
+        <p class="jacket">{{this.animation[4].summary}}</p>
       </div>
       <div class="container4">
         <div class="border"></div>
         <div class="img"></div>
         <div class="backpatt"></div>
         <h2 class="t07">07</h2>
-        <h2 class="shirt">Men’s shirts</h2>
-        <h2 class="edi">EDITION</h2>
+        <h2 class="shirt">{{this.animation[6].summary}}</h2>
+        <h2 class="edi">{{this.animation[6].title}}</h2>
       </div>
       <div class="container5">
         <div class="border"></div>
         <div class="img"></div>
         <div class="backpatt"></div>
         <h2 class="t02">02</h2>
-        <h2 class="basic">Men’s basics</h2>
-        <h2 class="free">FREELIFT</h2>
+        <h2 class="basic">{{this.animation[1].summary}}</h2>
+        <h2 class="free">{{this.animation[1].title}}</h2>
       </div>
       <div class="container6">
-        <h1>DENIM</h1>
+        <h1>{{this.animation[3].title}}</h1>
         <div class="img"></div>
         <div class="border"></div>
         <h2>04</h2>
         <div class="patt"></div>
-        <p class="cadual">Men’s cadual</p>
+        <p class="cadual">{{this.animation[3].summary}}</p>
       </div>
       <div class="container7">
         <div class="border"></div>
         <div class="img"></div>
         <div class="backpatt"></div>
         <h2 class="t06">06</h2>
-        <h2 class="classic">Men’s classic</h2>
-        <h2 class="vin">VINTAGE DENIM</h2>
+        <h2 class="classic">{{this.animation[5].summary}}</h2>
+        <h2 class="vin">{{this.animation[5].title}}</h2>
       </div>
     </div>
   </div>
@@ -78,7 +78,37 @@ export default {
   props: [],
   data() {
     return {
-      hiddenItem: false
+      hiddenItem: false,
+      animation: [
+        {
+          title: "かぐや様は告らせたい",
+          summary: "ラブコメ"
+        },
+        {
+          title: "五等分の花嫁",
+          summary: "ラブコメ"
+        },
+        {
+          title: "約束のネバーランド",
+          summary: "サスペンス"
+        },
+        {
+          title: "盾の勇者の成り上がり",
+          summary: "バトル"
+        },
+        {
+          title: "賭ケグルイ××",
+          summary: "サスペンス"
+        },
+        {
+          title: "モブサイコ100 Ⅱ",
+          summary: "ファンタジー"
+        },
+        {
+          title: "どろろ",
+          summary: "バトル"
+        }
+      ]
     };
   },
   mounted: function() {
@@ -87,6 +117,9 @@ export default {
   methods: {
     showItem(val) {
       this.hiddenItem = val;
+    },
+    setGallery() {
+      this.$emit("setGallery", false);
     }
   }
 };
@@ -102,15 +135,23 @@ $img4: url(https://images.unsplash.com/photo-1484516758160-69878111a911?ixlib=rb
 $img5: url(https://images.unsplash.com/photo-1525448198276-222de3961638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43fb25556cdbd191e520c7f28739e40d&auto=format&fit=crop&w=1050&q=80);
 $img7: url(https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ff45d79414b3166b08b800a32018be&auto=format&fit=crop&w=634&q=80);
 $img6: url(https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=634&q=80);
-$patt: url(https://upload.cc/i1/2018/07/01/YAR2y8.png);
 $mainColor: #7828b4;
+$title1: "かぐや様は告らせたい";
+$title2: "五等分の花嫁";
+$title3: "約束のネバーランド";
+$title4: "盾の勇者の成り上がり";
+$title5: "賭ケグルイ××";
+$title6: "モブサイコ100Ⅱ";
+$title7: "どろろ";
+
 body,
 html,
 h1 {
-  font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
   background-color: none;
+  font-weight: 600;
+  font-family: "Finger Paint";
 }
 .box {
   text-align: left;
@@ -152,6 +193,7 @@ h1 {
 .title {
   grid-area: title;
   .back {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }
@@ -163,7 +205,7 @@ h1 {
     text-align: center;
     color: white;
     background-color: black;
-    left: 10%;
+    left: 8%;
     transform: translate(-50%, 0);
   }
   .txt {
@@ -189,12 +231,12 @@ h1 {
   h1 {
     z-index: 2;
     position: absolute;
-    font-size: 48px;
-    transform: translateY(83px);
+    font-size: 36px;
+    transform: translateY(80px);
   }
   h1::before {
     position: absolute;
-    content: "LINEN BLAZER";
+    content: $title1;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
@@ -209,7 +251,7 @@ h1 {
   }
   h2 {
     position: absolute;
-    font-size: 48px;
+    font-size: 36px;
     transform: translateY(460px);
   }
   .patt {
@@ -228,7 +270,7 @@ h1 {
     position: absolute;
     font-size: 24px;
     font-style: italic;
-    transform: translate(430px, 420px) rotate(90deg);
+    transform: translate(445px, 410px) rotate(90deg);
   }
 }
 .container2 {
@@ -261,7 +303,7 @@ h1 {
     transform: translate(300px, 150px);
   }
   .t03 {
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(480px, 260px);
   }
   .patt {
@@ -271,12 +313,12 @@ h1 {
   }
   .super {
     z-index: 2;
-    font-size: 48px;
-    transform: translate(150px, 0);
+    font-size: 36px;
+    transform: translate(150px, 25px);
   }
   .super::before {
     position: absolute;
-    content: "SUPER SKINNY";
+    content: $title3;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
@@ -295,12 +337,12 @@ h1 {
   h1 {
     z-index: 2;
     position: absolute;
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(0, 150px);
   }
   h1::before {
     position: absolute;
-    content: "SWEATSHIRTS";
+    content: $title5;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
@@ -315,7 +357,7 @@ h1 {
   }
   h2 {
     position: absolute;
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(120px, 260px);
   }
   .patt {
@@ -367,7 +409,7 @@ h1 {
     transform: translate(50px, 50px);
   }
   .t07 {
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(300px, 400px);
   }
   .shirt {
@@ -377,12 +419,12 @@ h1 {
   }
   .edi {
     z-index: 2;
-    font-size: 48px;
-    transform: translate(170px, 120px) rotate(90deg);
+    font-size: 36px;
+    transform: translate(200px, 95px) rotate(90deg);
   }
   .edi::before {
     position: absolute;
-    content: "EDITION";
+    content: $title7;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
@@ -417,22 +459,22 @@ h1 {
     transform: translate(240px, 100px);
   }
   .t02 {
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(425px, 50px);
   }
   .basic {
     font-size: 24px;
     font-style: italic;
-    transform: translate(100px, 150px);
+    transform: translate(120px, 150px);
   }
   .free {
     z-index: 2;
-    font-size: 48px;
-    transform: translate(240px, 360px);
+    font-size: 36px;
+    transform: translate(240px, 370px);
   }
   .free::before {
     position: absolute;
-    content: "FREELIFT";
+    content: $title2;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
@@ -451,12 +493,12 @@ h1 {
   h1 {
     z-index: 2;
     position: absolute;
-    font-size: 48px;
-    transform: translate(135px, 100px) rotate(-90deg);
+    font-size: 36px;
+    transform: translate(40px, 100px) rotate(-90deg);
   }
   h1::before {
     position: absolute;
-    content: "DENIM";
+    content: $title4;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
@@ -471,7 +513,7 @@ h1 {
   }
   h2 {
     position: absolute;
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(180px, 400px);
   }
   .patt {
@@ -490,7 +532,7 @@ h1 {
     position: absolute;
     font-size: 24px;
     font-style: italic;
-    transform: translate(350px, -15px) rotate(90deg);
+    transform: translate(380px, 15px) rotate(90deg);
   }
 }
 .container7 {
@@ -523,7 +565,7 @@ h1 {
     transform: translate(0, 350px);
   }
   .t06 {
-    font-size: 48px;
+    font-size: 36px;
     transform: translate(-55px, 210px);
   }
   .classic {
@@ -533,12 +575,12 @@ h1 {
   }
   .vin {
     z-index: 2;
-    font-size: 48px;
-    transform: translate(120px, 0);
+    font-size: 36px;
+    transform: translate(200px, 25px);
   }
   .vin::before {
     position: absolute;
-    content: "VINTAGE DENIM";
+    content: $title6;
     transform: translateY(-10px);
     color: rgba(0, 0, 0, 0.3);
   }
