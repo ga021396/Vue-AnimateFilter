@@ -11,7 +11,7 @@
       </div>
       <div class="container1">
         <h1>{{this.animation[0].title}}</h1>
-        <div class="img" @click="showItem(true)"></div>
+        <img src="../assets/img/kaguya.jpg" class="img">
         <div class="border"></div>
         <h2>01</h2>
         <div class="patt"></div>
@@ -19,7 +19,7 @@
       </div>
       <div class="container2">
         <div class="border"></div>
-        <div class="img"></div>
+        <img src="../assets/img/yakusou.jpg" class="img">
         <div class="backpatt"></div>
         <h2 class="t03">03</h2>
         <h2 class="patt">{{this.animation[2].summary}}</h2>
@@ -43,7 +43,7 @@
       </div>
       <div class="container5">
         <div class="border"></div>
-        <div class="img"></div>
+        <img src="../assets/img/gotoubun.jpg" class="img">
         <div class="backpatt"></div>
         <h2 class="t02">02</h2>
         <h2 class="basic">{{this.animation[1].summary}}</h2>
@@ -51,7 +51,7 @@
       </div>
       <div class="container6">
         <h1>{{this.animation[3].title}}</h1>
-        <div class="img"></div>
+        <img src="../assets/img/yakusou.jpg" class="img">
         <div class="border"></div>
         <h2>04</h2>
         <div class="patt"></div>
@@ -89,12 +89,12 @@ export default {
           summary: "ラブコメ"
         },
         {
-          title: "約束のネバーランド",
-          summary: "サスペンス"
-        },
-        {
           title: "盾の勇者の成り上がり",
           summary: "バトル"
+        },
+        {
+          title: "約束のネバーランド",
+          summary: "サスペンス"
         },
         {
           title: "賭ケグルイ××",
@@ -138,8 +138,8 @@ $img6: url(https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb
 $mainColor: #7828b4;
 $title1: "かぐや様は告らせたい";
 $title2: "五等分の花嫁";
-$title3: "約束のネバーランド";
-$title4: "盾の勇者の成り上がり";
+$title3: "盾の勇者の成り上がり";
+$title4: "約束のネバーランド";
 $title5: "賭ケグルイ××";
 $title6: "モブサイコ100Ⅱ";
 $title7: "どろろ";
@@ -220,19 +220,15 @@ h1 {
 .container1 {
   grid-area: container1;
   .img {
-    height: 400px;
-    width: 480px;
     position: absolute;
-    background-size: cover;
-    background-position: center center;
-    background-image: $img1;
-    transform: translateY(100px);
+    width: 100%;
+    transform: translateY(200px);
   }
   h1 {
     z-index: 2;
     position: absolute;
     font-size: 36px;
-    transform: translateY(80px);
+    transform: translateY(150px);
   }
   h1::before {
     position: absolute;
@@ -280,11 +276,8 @@ h1 {
     position: absolute;
   }
   .img {
-    background-size: cover;
-    background-position: center center;
-    width: 480px;
+    position: absolute;
     height: 200px;
-    background-image: $img3;
     transform: translate(0, 100px);
   }
   .backpatt {
@@ -436,11 +429,8 @@ h1 {
     position: absolute;
   }
   .img {
-    background-size: cover;
-    background-position: center center;
     width: 240px;
-    height: 200px;
-    background-image: $img2;
+    position: absolute;
     transform: translate(120px, 200px);
   }
   .backpatt {
@@ -483,18 +473,14 @@ h1 {
   grid-area: container6;
   .img {
     height: 400px;
-    width: 240px;
     position: absolute;
-    background-size: cover;
-    background-position: center center;
-    background-image: $img4;
-    transform: translate(240px, 100px);
+    transform: translate(220px, 100px);
   }
   h1 {
     z-index: 2;
     position: absolute;
     font-size: 36px;
-    transform: translate(40px, 100px) rotate(-90deg);
+    transform: translate(35px, 100px) rotate(-90deg);
   }
   h1::before {
     position: absolute;
@@ -520,7 +506,7 @@ h1 {
     position: absolute;
     width: 240px;
     height: 100px;
-    transform: translate(240px, 460px);
+    transform: translate(220px, 460px);
     background-image: linear-gradient(
       to top left,
       $mainColor,
@@ -532,7 +518,7 @@ h1 {
     position: absolute;
     font-size: 24px;
     font-style: italic;
-    transform: translate(380px, 15px) rotate(90deg);
+    transform: translate(370px, -10px) rotate(90deg);
   }
 }
 .container7 {
