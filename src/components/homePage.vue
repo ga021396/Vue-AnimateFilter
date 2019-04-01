@@ -128,7 +128,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss" scoped>
-$img1: url(https://images.unsplash.com/photo-1513827379601-9dba5099a3f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1acdd78f34ee75aade9e313251bb1695&auto=format&fit=crop&w=1868&q=80);
+$img1: url();
 $img2: url(https://images.unsplash.com/photo-1514632542677-48fae74a01b2?ixlib=rb-0.3.5&s=50945fdb784e64361154c62785542531&auto=format&fit=crop&w=1868&q=80);
 $img3: url(https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0f994eef47e5fb1a67849703cc961b3&auto=format&fit=crop&w=1050&q=80);
 $img4: url(https://images.unsplash.com/photo-1484516758160-69878111a911?ixlib=rb-0.3.5&s=593101f82127d40025c1d27fa186ccc7&auto=format&fit=crop&w=687&q=80);
