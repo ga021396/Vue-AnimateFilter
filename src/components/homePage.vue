@@ -19,7 +19,7 @@
       </div>
       <div class="container2">
         <div class="border"></div>
-        <img src="../assets/img/yakusou.jpg" class="img">
+        <img src="../assets/img/tateno.png" class="img">
         <div class="backpatt"></div>
         <h2 class="t03">03</h2>
         <h2 class="patt">{{this.animation[2].summary}}</h2>
