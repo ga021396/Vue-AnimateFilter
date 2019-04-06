@@ -27,7 +27,7 @@
       </div>
       <div class="container3">
         <h1>{{this.animation[4].title}}</h1>
-        <div class="img"></div>
+        <img src="../assets/img/kake.jpg" class="img">
         <div class="border"></div>
         <h2>05</h2>
         <div class="patt"></div>
@@ -35,7 +35,7 @@
       </div>
       <div class="container4">
         <div class="border"></div>
-        <div class="img"></div>
+        <img src="../assets/img/dororo.jpg" class="img">
         <div class="backpatt"></div>
         <h2 class="t07">07</h2>
         <h2 class="shirt">{{this.animation[6].summary}}</h2>
@@ -59,7 +59,7 @@
       </div>
       <div class="container7">
         <div class="border"></div>
-        <div class="img"></div>
+        <img src="../assets/img/mobu.jpg" class="img">
         <div class="backpatt"></div>
         <h2 class="t06">06</h2>
         <h2 class="classic">{{this.animation[5].summary}}</h2>
@@ -128,13 +128,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss" scoped>
-$img1: url();
-$img2: url(https://images.unsplash.com/photo-1514632542677-48fae74a01b2?ixlib=rb-0.3.5&s=50945fdb784e64361154c62785542531&auto=format&fit=crop&w=1868&q=80);
-$img3: url(https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0f994eef47e5fb1a67849703cc961b3&auto=format&fit=crop&w=1050&q=80);
-$img4: url(https://images.unsplash.com/photo-1484516758160-69878111a911?ixlib=rb-0.3.5&s=593101f82127d40025c1d27fa186ccc7&auto=format&fit=crop&w=687&q=80);
-$img5: url(https://images.unsplash.com/photo-1525448198276-222de3961638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43fb25556cdbd191e520c7f28739e40d&auto=format&fit=crop&w=1050&q=80);
-$img7: url(https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ff45d79414b3166b08b800a32018be&auto=format&fit=crop&w=634&q=80);
-$img6: url(https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=634&q=80);
 $mainColor: #7828b4;
 $title1: "かぐや様は告らせたい";
 $title2: "五等分の花嫁";
@@ -277,7 +270,7 @@ h1 {
   }
   .img {
     position: absolute;
-    height: 200px;
+    height: 230px;
     transform: translate(0, 100px);
   }
   .backpatt {
@@ -293,16 +286,16 @@ h1 {
     height: 200px;
     border: 20px solid $mainColor;
     box-sizing: border-box;
-    transform: translate(300px, 150px);
+    transform: translate(300px, 180px);
   }
   .t03 {
     font-size: 36px;
-    transform: translate(480px, 260px);
+    transform: translate(480px, 290px);
   }
   .patt {
     font-size: 24px;
     font-style: italic;
-    transform: translate(25px, 280px);
+    transform: translate(25px, 310px);
   }
   .super {
     z-index: 2;
@@ -319,12 +312,9 @@ h1 {
 .container3 {
   grid-area: container3;
   .img {
-    height: 200px;
+    z-index: 2;
     width: 240px;
     position: absolute;
-    background-size: cover;
-    background-position: center center;
-    background-image: $img5;
     transform: translate(240px, 100px);
   }
   h1 {
@@ -351,7 +341,7 @@ h1 {
   h2 {
     position: absolute;
     font-size: 36px;
-    transform: translate(120px, 260px);
+    transform: translate(140px, 260px);
   }
   .patt {
     position: absolute;
@@ -379,11 +369,8 @@ h1 {
     position: absolute;
   }
   .img {
-    background-size: cover;
-    background-position: center center;
-    width: 240px;
+    position: absolute;
     height: 400px;
-    background-image: $img7;
     transform: translate(0, 100px);
   }
   .backpatt {
@@ -403,7 +390,7 @@ h1 {
   }
   .t07 {
     font-size: 36px;
-    transform: translate(300px, 400px);
+    transform: translate(310px, 400px);
   }
   .shirt {
     font-size: 24px;
@@ -413,7 +400,7 @@ h1 {
   .edi {
     z-index: 2;
     font-size: 36px;
-    transform: translate(200px, 95px) rotate(90deg);
+    transform: translate(265px, 95px) rotate(90deg);
   }
   .edi::before {
     position: absolute;
@@ -450,7 +437,7 @@ h1 {
   }
   .t02 {
     font-size: 36px;
-    transform: translate(425px, 50px);
+    transform: translate(420px, 85px);
   }
   .basic {
     font-size: 24px;
@@ -472,6 +459,7 @@ h1 {
 .container6 {
   grid-area: container6;
   .img {
+    z-index: 2;
     height: 400px;
     position: absolute;
     transform: translate(220px, 100px);
@@ -528,12 +516,9 @@ h1 {
     position: absolute;
   }
   .img {
-    background-size: cover;
-    background-position: center center;
-    width: 480px;
     height: 400px;
-    background-image: $img6;
-    transform: translate(0, 100px);
+    transform: translate(40px, 100px);
+    position: absolute;
   }
   .backpatt {
     z-index: -1;
@@ -552,7 +537,7 @@ h1 {
   }
   .t06 {
     font-size: 36px;
-    transform: translate(-55px, 210px);
+    transform: translate(-20px, 230px);
   }
   .classic {
     font-size: 24px;
