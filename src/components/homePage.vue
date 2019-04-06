@@ -11,7 +11,7 @@
       </div>
       <div class="container1">
         <h1>{{this.animation[0].title}}</h1>
-        <img src="../assets/img/kaguya.jpg" class="img">
+        <img src="../assets/img/kaguya.jpg" class="img" @click="showItem(true)">
         <div class="border"></div>
         <h2>01</h2>
         <div class="patt"></div>
@@ -19,7 +19,7 @@
       </div>
       <div class="container2">
         <div class="border"></div>
-        <img src="../assets/img/tateno.png" class="img">
+        <img src="../assets/img/tateno.png" class="img" @click="showItem(true)">
         <div class="backpatt"></div>
         <h2 class="t03">03</h2>
         <h2 class="patt">{{this.animation[2].summary}}</h2>
@@ -27,7 +27,7 @@
       </div>
       <div class="container3">
         <h1>{{this.animation[4].title}}</h1>
-        <img src="../assets/img/kake.jpg" class="img">
+        <img src="../assets/img/kake.jpg" class="img" @click="showItem(true)">
         <div class="border"></div>
         <h2>05</h2>
         <div class="patt"></div>
@@ -35,7 +35,7 @@
       </div>
       <div class="container4">
         <div class="border"></div>
-        <img src="../assets/img/dororo.jpg" class="img">
+        <img src="../assets/img/dororo.jpg" class="img" @click="showItem(true)">
         <div class="backpatt"></div>
         <h2 class="t07">07</h2>
         <h2 class="shirt">{{this.animation[6].summary}}</h2>
@@ -43,7 +43,7 @@
       </div>
       <div class="container5">
         <div class="border"></div>
-        <img src="../assets/img/gotoubun.jpg" class="img">
+        <img src="../assets/img/gotoubun.jpg" class="img" @click="showItem(true)">
         <div class="backpatt"></div>
         <h2 class="t02">02</h2>
         <h2 class="basic">{{this.animation[1].summary}}</h2>
@@ -51,7 +51,7 @@
       </div>
       <div class="container6">
         <h1>{{this.animation[3].title}}</h1>
-        <img src="../assets/img/yakusou.jpg" class="img">
+        <img src="../assets/img/yakusou.jpg" class="img" @click="showItem(true)">
         <div class="border"></div>
         <h2>04</h2>
         <div class="patt"></div>
@@ -59,7 +59,7 @@
       </div>
       <div class="container7">
         <div class="border"></div>
-        <img src="../assets/img/mobu.jpg" class="img">
+        <img src="../assets/img/mobu.jpg" class="img" @click="showItem(true)">
         <div class="backpatt"></div>
         <h2 class="t06">06</h2>
         <h2 class="classic">{{this.animation[5].summary}}</h2>
@@ -111,9 +111,7 @@ export default {
       ]
     };
   },
-  mounted: function() {
-    console.log(this.hiddenItem);
-  },
+  mounted: function() {},
   methods: {
     showItem(val) {
       this.hiddenItem = val;
@@ -181,6 +179,9 @@ h1 {
   div {
     position: relative;
     z-index: 0;
+  }
+  img {
+    cursor: pointer;
   }
 }
 .title {
@@ -447,7 +448,7 @@ h1 {
   .free {
     z-index: 2;
     font-size: 36px;
-    transform: translate(240px, 370px);
+    transform: translate(240px, 400px);
   }
   .free::before {
     position: absolute;
