@@ -5,20 +5,36 @@
         <iframe
           width="auto"
           height="100%"
-          src="https://www.youtube.com/embed/7FtgXtNPQGY"
+          :src="animationData.link"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
         <div class="introduction">
-          <h2>mytitle</h2>
+          <h2>{{animationData.title}}</h2>
+
           <p>
-            <span>caterogu:</span>
-            <span>myCaterogu</span>
+            <span>監督 :</span>
+            <span>{{animationData.director}}</span>
+          </p>
+          <p>
+            <span>放送局 :</span>
+            <span>{{animationData.player}}</span>
+          </p>
+          <p>
+            <span>カテゴリー :</span>
+            <span>{{animationData.summary}}</span>
+          </p>
+          <p>
+            <span>アニメーション制作 :</span>
+            <span>{{animationData.maker}}</span>
           </p>
         </div>
       </div>
-      <div class="story"></div>
+      <div class="story">
+        <h2>ストーリー</h2>
+        <p>{{animationData.story}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -56,12 +72,15 @@ export default {
   align-items: center;
 }
 .container {
+  max-width: 800px;
   position: absolute;
-  height: 80vh;
-  width: 80vw;
-  background: white;
+  height: 90vh;
+  width: 90vw;
+  background: darken(white, 10%);
   padding: 20px;
   box-sizing: border-box;
+  font-family: "Kokoro";
+  display: inline;
 }
 .section {
   width: 100%;
@@ -69,7 +88,6 @@ export default {
   display: flex;
   justify-content: space-between;
   .introduction {
-    background: burlywood;
     flex-grow: 1;
     width: auto;
     height: 100%;
@@ -83,7 +101,29 @@ export default {
     p {
       span {
         margin-right: 8px;
+        font-size: 16px;
+        font-weight: 700;
       }
+    }
+  }
+}
+.story {
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+  h2 {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 8px;
+  }
+  p {
+    margin: 0;
+    span {
+      margin-right: 8px;
+      font-size: 16px;
+      font-weight: 700;
     }
   }
 }
