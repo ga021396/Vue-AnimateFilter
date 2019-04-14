@@ -25,7 +25,7 @@ export default {
   mounted: function() {
     setTimeout(function() {
       window.scrollTo(0, 0);
-    }, 6000);
+    }, 3000);
   }
 };
 </script>
@@ -52,7 +52,7 @@ export default {
   backface-visibility: hidden;
   animation-name: hidden;
   animation-duration: 1s;
-  animation-delay: 6s;
+  animation-delay: 3s;
   animation-fill-mode: forwards;
 
   span {
@@ -109,7 +109,7 @@ export default {
 
 @for $item from 1 through 12 {
   span:nth-of-type(#{$item}) {
-    animation-delay: #{(3 + ($item/10))}s;
+    animation-delay: #{(0 + ($item/10))}s;
   }
 }
 </style>

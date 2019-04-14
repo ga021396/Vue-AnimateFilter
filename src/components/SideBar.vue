@@ -230,7 +230,7 @@ $mainColor: #7828b4;
       color: lighten(#2c3e50, 55%);
       transition: all 0.3s ease-in-out;
       &:hover {
-        color: $mainColor;
+        color: lighter($mainColor, 30%);
       }
     }
   }

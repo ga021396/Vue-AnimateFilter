@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <open></open> -->
+    <open></open>
     <template v-if="!gallery">
       <sidebar
         @setValue="setValue"
@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      gallery: false,
+      gallery: true,
       mask: true,
       favorite: false,
       search: "",
