@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <item v-if="hiddenItem" @showItem="showItem"></item>
-    <div class="box" v-if="!hiddenItem">
+  <div class="container">
+    <item v-if="hiddenItem" @showItem="showItem" :animationData="animationData"></item>
+    <div class="box">
       <div class="title">
         <div class="back" @click="setGallery">
           <font-awesome-icon icon="arrow-left"/>
@@ -11,7 +11,7 @@
       </div>
       <div class="container1">
         <h1>{{this.animation[0].title}}</h1>
-        <img src="../assets/img/kaguya.jpg" class="img" @click="showItem(true)">
+        <img src="../assets/img/kaguya.jpg" class="img" @click="showItem(true,0)">
         <div class="border"></div>
         <h2>01</h2>
         <div class="patt"></div>
@@ -19,7 +19,7 @@
       </div>
       <div class="container2">
         <div class="border"></div>
-        <img src="../assets/img/tateno.png" class="img" @click="showItem(true)">
+        <img src="../assets/img/tateno.png" class="img" @click="showItem(true,2)">
         <div class="backpatt"></div>
         <h2 class="t03">03</h2>
         <h2 class="patt">{{this.animation[2].summary}}</h2>
@@ -27,7 +27,7 @@
       </div>
       <div class="container3">
         <h1>{{this.animation[4].title}}</h1>
-        <img src="../assets/img/kake.jpg" class="img" @click="showItem(true)">
+        <img src="../assets/img/kake.jpg" class="img" @click="showItem(true,4)">
         <div class="border"></div>
         <h2>05</h2>
         <div class="patt"></div>
@@ -35,7 +35,7 @@
       </div>
       <div class="container4">
         <div class="border"></div>
-        <img src="../assets/img/dororo.jpg" class="img" @click="showItem(true)">
+        <img src="../assets/img/dororo.jpg" class="img" @click="showItem(true,6)">
         <div class="backpatt"></div>
         <h2 class="t07">07</h2>
         <h2 class="shirt">{{this.animation[6].summary}}</h2>
@@ -43,7 +43,7 @@
       </div>
       <div class="container5">
         <div class="border"></div>
-        <img src="../assets/img/gotoubun.jpg" class="img" @click="showItem(true)">
+        <img src="../assets/img/gotoubun.jpg" class="img" @click="showItem(true,1)">
         <div class="backpatt"></div>
         <h2 class="t02">02</h2>
         <h2 class="basic">{{this.animation[1].summary}}</h2>
@@ -51,7 +51,7 @@
       </div>
       <div class="container6">
         <h1>{{this.animation[3].title}}</h1>
-        <img src="../assets/img/yakusou.jpg" class="img" @click="showItem(true)">
+        <img src="../assets/img/yakusou.jpg" class="img" @click="showItem(true,3)">
         <div class="border"></div>
         <h2>04</h2>
         <div class="patt"></div>
@@ -59,7 +59,7 @@
       </div>
       <div class="container7">
         <div class="border"></div>
-        <img src="../assets/img/mobu.jpg" class="img" @click="showItem(true)">
+        <img src="../assets/img/mobu.jpg" class="img" @click="showItem(true,5)">
         <div class="backpatt"></div>
         <h2 class="t06">06</h2>
         <h2 class="classic">{{this.animation[5].summary}}</h2>
@@ -78,46 +78,65 @@ export default {
   props: [],
   data() {
     return {
+      animationData: "",
       hiddenItem: false,
       animation: [
         {
           title: "かぐや様は告らせたい",
-          summary: "ラブコメ"
+          summary: "ラブコメ",
+          link: "",
+          story: ""
         },
         {
           title: "五等分の花嫁",
-          summary: "ラブコメ"
+          summary: "ラブコメ",
+          link: "",
+          story: ""
         },
         {
           title: "盾の勇者の成り上がり",
-          summary: "バトル"
+          summary: "バトル",
+          link: "",
+          story: ""
         },
         {
           title: "約束のネバーランド",
-          summary: "サスペンス"
+          summary: "サスペンス",
+          link: "",
+          story: ""
         },
         {
           title: "賭ケグルイ××",
-          summary: "サスペンス"
+          summary: "サスペンス",
+          link: "",
+          story: ""
         },
         {
           title: "モブサイコ100 Ⅱ",
-          summary: "ファンタジー"
+          summary: "ファンタジー",
+          link: "",
+          story: ""
         },
         {
           title: "どろろ",
-          summary: "バトル"
+          summary: "バトル",
+          link: "",
+          story: ""
         }
       ]
     };
   },
   mounted: function() {},
   methods: {
-    showItem(val) {
+    showItem(val, which) {
+      this.setAnimationData(which);
       this.hiddenItem = val;
     },
     setGallery() {
       this.$emit("setGallery", false);
+    },
+    setAnimationData(which) {
+      this.animationData = this.animation[which];
     }
   }
 };
@@ -134,9 +153,9 @@ $title4: "約束のネバーランド";
 $title5: "賭ケグルイ××";
 $title6: "モブサイコ100Ⅱ";
 $title7: "どろろ";
-
-body,
-html,
+.container {
+  height: 100vh;
+}
 h1 {
   padding: 0;
   margin: 0;

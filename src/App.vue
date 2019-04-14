@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      gallery: true,
+      gallery: false,
       mask: true,
       favorite: false,
       search: "",
@@ -127,6 +127,7 @@ html {
   background-color: #f2f2f2;
   margin: 0;
   font-family: "Roboto", sans-serif;
+  padding: 0;
 }
 
 .container {
