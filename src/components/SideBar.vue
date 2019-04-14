@@ -116,6 +116,7 @@ export default {
       FB.logout(response => {
         this.profile = {};
         this.statusChangeCallback(response);
+        this.$emit("setMyFavorite", false);
       });
     },
     statusChangeCallback(response) {

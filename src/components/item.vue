@@ -76,7 +76,7 @@ export default {
   position: absolute;
   height: 90vh;
   width: 90vw;
-  background: darken(white, 10%);
+  background: darken(white, 5%);
   padding: 20px;
   box-sizing: border-box;
   font-family: "Kokoro";
