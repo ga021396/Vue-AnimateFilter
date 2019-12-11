@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <open></open>
-    <template v-if="!gallery">
+    <template>
       <sidebar
         @setValue="setValue"
         @setMyFavorite="setMyFavorite"
@@ -22,7 +22,6 @@
         </div>
       </div>
     </template>
-    <home-page v-if="gallery" @setGallery="setGallery"></home-page>
   </div>
 </template>
 

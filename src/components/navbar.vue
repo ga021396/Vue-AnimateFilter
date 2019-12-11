@@ -4,7 +4,6 @@
     <h1 id="navbarTitle">animeFilter</h1>
     <font-awesome-icon icon="search" class="icon-search"/>
     <input type="text" v-model="handleSearch" placeholder="Find your favorite anime!">
-    <font-awesome-icon icon="home" class="icon-home" @click="setGallery()"/>
   </div>
 </template>
 
